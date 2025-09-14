@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fincrypta — Главная</title>
+  <title>Fincrypta - Главная</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
   <nav>
-    <ul class="navbar">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul class="navbar" id="navbar">
       <li><a href="index.html">Главная</a></li>
       <li><a href="about.html">О проекте</a></li>
       <li><a href="contacts.html">Контакты</a></li>
@@ -23,10 +22,10 @@
     </ul>
   </nav>
 
-  <main class="container">
+  <div class="container">
     <h1>Добро пожаловать в Fincrypta</h1>
-    <p>Здесь вы найдете актуальные статьи о криптовалютах, инвестициях и финансовых технологиях.</p>
-  </main>
+    <p>Здесь вы найдете информацию о криптовалютах: законы, инвестиции, безопасность, майнинг и многое другое.</p>
+  </div>
 
   <footer>
     © 2025 Fincrypta |
@@ -34,5 +33,10 @@
     <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
   </footer>
 
+  <script>
+  function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("show");
+  }
+  </script>
 </body>
 </html>
