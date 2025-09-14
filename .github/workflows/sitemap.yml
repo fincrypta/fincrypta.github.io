@@ -1,0 +1,36 @@
+name: Generate Sitemap
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Generate sitemap.xml
+        run: |
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
+          for file in $(find . -name "*.html"); do
+            url="https://fincrypta.github.io${file#\.}"
+            lastmod=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+            echo "  <url>" >> sitemap.xml
+            echo "    <loc>$url</loc>" >> sitemap.xml
+            echo "    <lastmod>$lastmod</lastmod>" >> sitemap.xml
+            echo "  </url>" >> sitemap.xml
+          done
+          echo '</urlset>' >> sitemap.xml
+
+      - name: Commit and push sitemap.xml
+        run: |
+          git config --local user.name "github-actions"
+          git config --local user.email "actions@github.com"
+          git add sitemap.xml
+          git commit -m "Update sitemap.xml" || echo "No changes to commit"
+          git push
