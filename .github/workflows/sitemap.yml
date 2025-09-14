@@ -1,4 +1,4 @@
-name: Generate Sitemap
+name: Auto Update Sitemap & Robots
 
 on:
   push:
@@ -8,29 +8,54 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
-      - name: Checkout repository
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Generate sitemap.xml
         run: |
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
-          for file in $(find . -name "*.html"); do
-            url="https://fincrypta.github.io${file#\.}"
-            lastmod=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-            echo "  <url>" >> sitemap.xml
-            echo "    <loc>$url</loc>" >> sitemap.xml
-            echo "    <lastmod>$lastmod</lastmod>" >> sitemap.xml
-            echo "  </url>" >> sitemap.xml
+
+          # Функция для добавления URL с датой
+          add_url () {
+            url=$1
+            file=$2
+            if [ -f "$file" ]; then
+              lastmod=$(date -u -r "$file" +"%Y-%m-%dT%H:%M:%SZ")
+              echo "  <url><loc>$url</loc><lastmod>$lastmod</lastmod></url>" >> sitemap.xml
+            fi
+          }
+
+          # Главная
+          add_url "https://fincrypta.github.io/" index.html
+
+          # Все страницы в blog/
+          for file in blog/*.html; do
+            fname=$(basename $file)
+            add_url "https://fincrypta.github.io/blog/$fname" "$file"
           done
+
+          # Остальные страницы
+          for file in about.html contacts.html disclaimer.html privacy.html; do
+            add_url "https://fincrypta.github.io/$file" "$file"
+          done
+
           echo '</urlset>' >> sitemap.xml
 
-      - name: Commit and push sitemap.xml
+      - name: Generate robots.txt
+        run: |
+          echo "User-agent: *" > robots.txt
+          echo "Allow: /" >> robots.txt
+          echo "Sitemap: https://fincrypta.github.io/sitemap.xml" >> robots.txt
+
+      - name: Commit and Push changes
         run: |
           git config --local user.name "github-actions"
-          git config --local user.email "actions@github.com"
-          git add sitemap.xml
-          git commit -m "Update sitemap.xml" || echo "No changes to commit"
+          git config --local user.email "github-actions@github.com"
+          git add sitemap.xml robots.txt
+          git commit -m "Auto-update sitemap.xml and robots.txt with lastmod" || echo "No changes"
           git push
