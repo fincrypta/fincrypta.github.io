@@ -1,93 +1,108 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <nav>
-  <ul class="navbar">
-    <!-- Основные страницы -->
-    <li><a href="index.html">Главная</a></li>
-    <li><a href="about.html">О проекте</a></li>
-    <li><a href="contacts.html">Контакты</a></li>
-
-    <!-- Категории -->
-    <li><a href="blog/buy-sell.html">Покупка/Продажа и Обмен</a></li>
-    <li><a href="blog/law-taxes.html">Законодательство и Налоги</a></li>
-    <li><a href="blog/invest-analytics.html">Инвестиции и Аналитика</a></li>
-    <li><a href="blog/security-wallets.html">Безопасность и Хранение</a></li>
-    <li><a href="blog/bitcoin.html">Как купить биткоин</a></li>
-    <li><a href="blog/banks-crypto.html">Банки и Криптовалюты</a></li>
-  </ul>
-</nav>
-
-<style>
-  body {
-    font-family: Arial, sans-serif;
-  }
-
-  nav {
-    background: #1a1a1a;
-    padding: 10px;
-  }
-
-  .navbar {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .navbar li {
-    margin: 5px 10px;
-  }
-
-  .navbar a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    padding: 6px 10px;
-    border-radius: 5px;
-    transition: background 0.3s;
-  }
-
-  .navbar a:hover {
-    background: #333;
-  }
-</style>
   <meta charset="UTF-8">
-  <title>Fincrypta — блог о криптовалюте и финансах</title>
-  <meta name="description" content="CPA-блог о криптовалюте и финансах. Обзоры бирж, инструкции по покупке и хранению крипто.">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FinCrypta — Главная</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #222;
+    }
+
+    /* Навигация */
+    nav {
+      background: #1a1a1a;
+      padding: 10px;
+    }
+
+    .navbar {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .navbar li {
+      margin: 5px 10px;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      padding: 6px 10px;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .navbar a:hover {
+      background: #333;
+    }
+
+    /* Контент */
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      font-size: 28px;
+      margin-bottom: 15px;
+      color: #111;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    /* Футер */
+    footer {
+      text-align: center;
+      padding: 15px;
+      margin-top: 30px;
+      background: #1a1a1a;
+      color: white;
+    }
+  </style>
 </head>
 <body>
+
   <!-- Навигация -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Fincrypta</a>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="index.html">Главная</a></li>
-          <li class="nav-item"><a class="nav-link" href="blog/bitcoin.html">Блог</a></li>
-          <li class="nav-item"><a class="nav-link" href="about.html">О проекте</a></li>
-          <li class="nav-item"><a class="nav-link" href="contacts.html">Контакты</a></li>
-        </ul>
-      </div>
-    </div>
+  <nav>
+    <ul class="navbar">
+      <li><a href="index.html">Главная</a></li>
+      <li><a href="about.html">О проекте</a></li>
+      <li><a href="contacts.html">Контакты</a></li>
+      <li><a href="blog/buy-sell.html">Покупка/Продажа и Обмен</a></li>
+      <li><a href="blog/law-taxes.html">Законодательство и Налоги</a></li>
+      <li><a href="blog/invest-analytics.html">Инвестиции и Аналитика</a></li>
+      <li><a href="blog/security-wallets.html">Безопасность и Хранение</a></li>
+      <li><a href="blog/bitcoin.html">Как купить биткоин</a></li>
+      <li><a href="blog/banks-crypto.html">Банки и Криптовалюты</a></li>
+    </ul>
   </nav>
 
   <!-- Контент -->
-  <div class="container mt-5">
-    <h1>Добро пожаловать в Fincrypta!</h1>
-    <p class="lead">Здесь вы найдете обзоры криптовалютных бирж, инструкции для новичков и полезные советы по инвестициям.</p>
-
-    <h2>Последние статьи</h2>
-    <ul>
-      <li><a href="blog/bitcoin.html">Как купить биткоин в России безопасно</a></li>
-    </ul>
+  <div class="container">
+    <h1>Добро пожаловать в FinCrypta</h1>
+    <p>Здесь вы найдёте актуальные статьи о криптовалютах, инвестициях и законах. Мы собрали для вас полезные материалы по самым важным темам.</p>
+    <p>Выберите категорию в меню выше, чтобы перейти к интересующему разделу.</p>
   </div>
 
-  <!-- Подвал -->
-  <footer class="bg-dark text-white text-center p-3 mt-5">
-    © 2025 Fincrypta. Все права защищены.
+  <!-- Футер -->
+  <footer>
+    © 2025 FinCrypta. Все права защищены.
   </footer>
+
 </body>
 </html>
