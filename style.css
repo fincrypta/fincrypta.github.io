@@ -9,6 +9,18 @@ body {
 
 h1, h2, h3 {
   color: #1a1a1a;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;   /* центрирование */
+  padding: 20px;    /* отступы внутри */
 }
 
 /* === Навигация === */
@@ -27,14 +39,14 @@ nav {
 }
 
 .navbar li {
-  margin: 5px 10px;
+  margin: 5px 10px; /* расстояние между пунктами */
 }
 
 .navbar a {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  padding: 6px 10px;
+  padding: 8px 14px; /* увеличил кликабельную зону */
   border-radius: 5px;
   transition: background 0.3s;
 }
@@ -48,18 +60,18 @@ footer {
   background: #1a1a1a;
   color: white;
   text-align: center;
-  padding: 15px;
+  padding: 20px;
   margin-top: 50px;
 }
 
 .footer-link {
-  color: #4da6ff; /* небесно-синий */
+  color: #4da6ff;
   text-decoration: none;
   font-weight: bold;
-  margin: 0 5px;
+  margin: 0 8px;
   transition: color 0.3s;
 }
 
 .footer-link:hover {
-  color: #ffd966; /* золотистый при наведении */
+  color: #ffd966;
 }
