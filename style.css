@@ -1,33 +1,16 @@
-/* === Общие стили === */
+/* === Базовые стили === */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #f9f9f9;
-  color: #222;
   line-height: 1.6;
-}
-
-h1, h2, h3 {
-  color: #1a1a1a;
-  margin-top: 20px;
-  margin-bottom: 15px;
-}
-
-p {
-  margin-bottom: 15px;
-}
-
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
+  background-color: #f9f9f9;
+  color: #222;
 }
 
 /* === Навигация === */
 nav {
   background: #1a1a1a;
   padding: 10px;
-  position: relative;
 }
 
 .navbar {
@@ -36,7 +19,6 @@ nav {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
 .navbar li {
@@ -47,7 +29,7 @@ nav {
   text-decoration: none;
   color: white;
   font-weight: bold;
-  padding: 8px 14px;
+  padding: 6px 10px;
   border-radius: 5px;
   transition: background 0.3s;
 }
@@ -56,52 +38,62 @@ nav {
   background: #333;
 }
 
-/* === Гамбургер-кнопка (мобильное меню) === */
-.menu-toggle {
-  display: none;
-  font-size: 26px;
-  color: white;
-  background: none;
-  border: none;
-  cursor: pointer;
-  position: absolute;
-  right: 15px;
-  top: 10px;
+/* === Контент статей === */
+article {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+  color: #111;
+}
+
+p {
+  margin-bottom: 15px;
+}
+
+ul, ol {
+  margin-left: 20px;
+  margin-bottom: 15px;
 }
 
 /* === Футер === */
 footer {
   background: #1a1a1a;
-  color: white;
+  color: #ccc;
   text-align: center;
   padding: 20px;
-  margin-top: 50px;
+  margin-top: 40px;
+  font-size: 14px;
 }
 
-.footer-link {
-  color: #4da6ff;
+footer a {
+  color: #ffcc00;
   text-decoration: none;
-  font-weight: bold;
-  margin: 0 8px;
-  transition: color 0.3s;
+  margin: 0 10px;
 }
 
-.footer-link:hover {
-  color: #ffd966;
+footer a:hover {
+  text-decoration: underline;
 }
 
-/* === Мобильная версия === */
+/* === Мобильная адаптация === */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
-    display: none; /* по умолчанию скрыто */
+    align-items: flex-start;
   }
 
-  .navbar.show {
-    display: flex; /* показывается при клике */
+  .navbar li {
+    margin: 8px 0;
   }
 
-  .menu-toggle {
-    display: block;
+  article {
+    margin: 15px;
+    padding: 15px;
   }
 }
