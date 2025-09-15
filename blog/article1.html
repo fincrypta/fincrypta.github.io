@@ -7,14 +7,18 @@
   <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-
-  <!-- Навигация -->
   <nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <ul class="navbar">
       <li><a href="../index.html">Главная</a></li>
-      <li><a href="../blog.html">Блог</a></li>
-      <li><a href="../about.html">О нас</a></li>
-      <li><a href="../contact.html">Контакты</a></li>
+      <li><a href="../about.html">О проекте</a></li>
+      <li><a href="../contacts.html">Контакты</a></li>
+      <li><a href="buy-sell.html">Покупка/Продажа</a></li>
+      <li><a href="law-taxes.html">Законодательство</a></li>
+      <li><a href="invest-analytics.html">Инвестиции</a></li>
+      <li><a href="security-wallets.html">Безопасность</a></li>
+      <li><a href="bitcoin.html">Биткоин</a></li>
+      <li><a href="banks-crypto.html">Банки</a></li>
     </ul>
   </nav>
 
@@ -161,6 +165,11 @@
     <a href="../disclaimer.html" class="footer-link">Дисклеймер</a> | 
     <a href="../privacy.html" class="footer-link">Политика конфиденциальности</a>
   </footer>
-
+<!-- Скрипт для гамбургера -->
+  <script>
+  function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("show");
+  }
+  </script>
 </body>
 </html>
