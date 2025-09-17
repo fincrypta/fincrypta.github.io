@@ -1,3 +1,57 @@
+/* === Reset & box sizing === */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Общие стили === */
+body {
+  font-family: Arial, sans-serif;
+  font-display: swap; /* Быстрая отрисовка текста */
+  background: #f9f9f9;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* === Заголовки и параграфы === */
+h1, h2, h3 {
+  color: #1a1a1a;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  line-height: 1.25;
+}
+
+p {
+  margin: 0 0 15px 0;
+}
+
+/* Списки */
+ul, ol {
+  margin: 0 0 15px 20px;
+  padding: 0;
+}
+li {
+  margin-bottom: 8px;
+}
+
+/* === Контейнеры === */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+article {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
 /* === Навигация === */
 nav {
   background: #1a1a1a;
