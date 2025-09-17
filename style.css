@@ -152,4 +152,24 @@ footer {
     font-size: 14px;
   }
 }
+.menu-toggle {
+  display: none;
+  font-size: 22px;
+  background: none;
+  border: none;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+  .navbar {
+    display: none;
+    flex-direction: column;
+  }
+  .navbar.show {
+    display: flex;
+  }
+}
 
