@@ -13,8 +13,8 @@ nav {
 }
 
 .navbar li {
-  position: relative; /* важно для выпадашки */
   margin: 5px 10px;
+  position: relative; /* для выпадающего меню */
 }
 
 .navbar a {
@@ -25,7 +25,7 @@ nav {
   padding: 10px 16px;
   border-radius: 5px;
   transition: background 0.25s;
-  min-width: 44px; /* Lighthouse рекомендация */
+  min-width: 44px;
   min-height: 44px;
 }
 
@@ -34,73 +34,58 @@ nav {
 }
 
 /* === Выпадающее меню === */
-.submenu {
+.navbar li ul {
   display: none;
   position: absolute;
   top: 100%;
   left: 0;
-  background: #222;
+  background: #fff;
   list-style: none;
+  padding: 10px 0;
   margin: 0;
-  padding: 0;
-  min-width: 200px;
   border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  min-width: 220px;
+  z-index: 1000;
 }
 
-.submenu li {
-  border-bottom: 1px solid #333;
-}
-
-.submenu li a {
+.navbar li:hover ul {
   display: block;
-  padding: 10px 15px;
-  color: #fff;
+}
+
+.navbar li ul li {
+  margin: 0;
+}
+
+.navbar li ul a {
+  display: block;
+  padding: 10px 20px;
+  color: #1a1a1a;
   font-weight: normal;
-  border-radius: 0;
+  text-decoration: none;
 }
 
-.submenu li a:hover {
-  background: #444;
+.navbar li ul a:hover {
+  background: #f2f2f2;
 }
 
-.navbar li:hover > .submenu {
-  display: block;
-}
-
-/* === Мобильная адаптация === */
+/* === Мобильная адаптация для выпадающего меню === */
 @media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
   .navbar {
     display: none;
     flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   }
   .navbar.show {
     display: flex;
   }
-
-  .navbar li {
-    width: 100%;
-    margin: 0;
-  }
-
-  .navbar a {
-    width: 100%;
-    text-align: left;
-    padding: 12px;
-  }
-
-  /* подменю в моб версии */
-  .submenu {
+  .navbar li ul {
     position: static;
     box-shadow: none;
     border-radius: 0;
+    min-width: 100%;
   }
-  .submenu li {
-    border-bottom: 1px solid #333;
+  .navbar li ul a {
+    padding: 10px 15px;
   }
 }
