@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Дисклеймер — Fincrypta</title>
+  <meta name="description" content="Дисклеймер Fincrypta: материалы сайта носят исключительно информационный характер и не являются инвестиционной рекомендацией.">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Дисклеймер — Fincrypta",
+    "description": "Дисклеймер Fincrypta: материалы сайта носят исключительно информационный характер и не являются инвестиционной рекомендацией.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Fincrypta"
+    }
+  }
+  </script>
 </head>
 <body>
 
   <nav>
-     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <ul class="navbar">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul class="navbar" id="navbar">
       <li><a href="index.html">Главная</a></li>
       <li><a href="about.html">О проекте</a></li>
       <li><a href="contacts.html">Контакты</a></li>
@@ -26,11 +39,15 @@
 
   <main class="container">
     <h1>Дисклеймер</h1>
-    <p>Информация, размещённая на сайте fincrypta.github.io, носит исключительно информационный и образовательный характер.
-      Мы не являемся финансовыми консультантами и не даём инвестиционных рекомендаций.
 
-      Любые решения, связанные с покупкой, продажей или хранением криптовалюты, вы принимаете самостоятельно и на свой риск.
-      Мы не несёт ответственности за возможные убытки или последствия, связанные с использованием материалов сайта.</p>
+    <h2>Образовательный характер информации</h2>
+    <p>Информация, размещённая на сайте Fincrypta, носит исключительно образовательный и справочный характер.</p>
+
+    <h2>Нет инвестиционных рекомендаций</h2>
+    <p>Мы не являемся финансовыми консультантами и не предоставляем инвестиционных советов.</p>
+
+    <h2>Ответственность пользователя</h2>
+    <p>Все решения, связанные с покупкой, продажей или хранением криптовалюты, пользователи принимают самостоятельно и на свой риск. Администрация сайта не несёт ответственности за возможные убытки или последствия, связанные с использованием материалов.</p>
   </main>
 
   <footer>
@@ -38,7 +55,7 @@
     <a href="disclaimer.html" class="footer-link">Дисклеймер</a> |
     <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
   </footer>
-<!-- Скрипт для гамбургера -->
+
   <script>
   function toggleMenu() {
     document.getElementById("navbar").classList.toggle("show");
