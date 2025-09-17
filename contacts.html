@@ -1,17 +1,34 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Контакты — Fincrypta</title>
+  <meta name="description" content="Свяжитесь с Fincrypta: почта info@fincrypta.com для вопросов по криптовалютам, инвестициям, аналитике и безопасности.">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Fincrypta",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "info@fincrypta.com",
+        "contactType": "customer support",
+        "availableLanguage": "Russian"
+      }
+    }
+  }
+  </script>
 </head>
 <body>
 
   <nav>
-     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <ul class="navbar">
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul class="navbar" id="navbar">
       <li><a href="index.html">Главная</a></li>
       <li><a href="about.html">О проекте</a></li>
       <li><a href="contacts.html">Контакты</a></li>
@@ -26,7 +43,13 @@
 
   <main class="container">
     <h1>Контакты</h1>
-    <p>Если у вас есть вопросы, пишите на почту: <a href="mailto:info@fincrypta.com">info@fincrypta.com</a></p>
+    <p>Если у вас есть вопросы по материалам сайта, сотрудничеству или предложения — вы можете связаться с нами.</p>
+
+    <h2>Электронная почта</h2>
+    <p>Пишите на почту: <a href="mailto:info@fincrypta.com">info@fincrypta.com</a></p>
+
+    <h2>Социальные сети</h2>
+    <p>Мы планируем завести Telegram-канал для обсуждений. Следите за обновлениями!</p>
   </main>
 
   <footer>
@@ -34,7 +57,7 @@
     <a href="disclaimer.html" class="footer-link">Дисклеймер</a> |
     <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
   </footer>
-<!-- Скрипт для гамбургера -->
+
   <script>
   function toggleMenu() {
     document.getElementById("navbar").classList.toggle("show");
