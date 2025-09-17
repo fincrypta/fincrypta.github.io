@@ -25,21 +25,31 @@
   </script>
 </head>
 <body>
-
+<header>
   <nav>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <ul class="navbar" id="navbar">
+    <button class="menu-toggle" onclick="document.querySelector('.navbar').classList.toggle('show')">☰</button>
+    <ul class="navbar">
       <li><a href="index.html">Главная</a></li>
+      <li>
+        <a href="#">Категории ▾</a>
+        <ul class="submenu">
+          <li><a href="news.html">Новости криптовалют</a></li>
+          <li><a href="bitcoin.html">Биткоин (BTC)</a></li>
+          <li><a href="altcoins.html">Альткоины (ETH, SOL, TON и др.)</a></li>
+          <li><a href="exchange.html">Обмен и покупка криптовалют</a></li>
+          <li><a href="exchanges.html">Криптобиржи (Binance, Bybit, OKX, Huobi)</a></li>
+          <li><a href="wallets.html">Обзоры кошельков (Metamask, Trust Wallet, холодные)</a></li>
+          <li><a href="mining.html">Майнинг и стейкинг</a></li>
+          <li><a href="defi-nft.html">DeFi и NFT</a></li>
+          <li><a href="regulation.html">Законы и регулирование</a></li>
+          <li><a href="trading.html">Инвестиции и трейдинг</a></li>
+        </ul>
+      </li>
       <li><a href="about.html">О проекте</a></li>
       <li><a href="contacts.html">Контакты</a></li>
-      <li><a href="blog/buy-sell.html">Покупка/Продажа</a></li>
-      <li><a href="blog/law-taxes.html">Законодательство</a></li>
-      <li><a href="blog/invest-analytics.html">Инвестиции</a></li>
-      <li><a href="blog/security-wallets.html">Безопасность</a></li>
-      <li><a href="blog/mining.html">Майнинг</a></li>
-      <li><a href="blog/banks-crypto.html">Банки</a></li>
     </ul>
   </nav>
+</header>
 
   <main class="container">
     <h1>Контакты</h1>
