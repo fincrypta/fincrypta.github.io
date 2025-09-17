@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>О проекте — Fincrypta</title>
+  <meta name="description" content="Fincrypta — независимый блог о криптовалютах и финансах. Мы публикуем статьи для инвесторов, майнеров и всех, кто интересуется цифровыми активами.">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "О проекте — Fincrypta",
+    "description": "Fincrypta — независимый блог о криптовалютах, инвестициях, майнинге и финансах в России.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Fincrypta"
+    }
+  }
+  </script>
 </head>
 <body>
 
   <nav>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-    <ul class="navbar">
+    <ul class="navbar" id="navbar">
       <li><a href="index.html">Главная</a></li>
       <li><a href="about.html">О проекте</a></li>
       <li><a href="contacts.html">Контакты</a></li>
@@ -25,8 +38,21 @@
   </nav>
 
   <main class="container">
-    <h1>О проекте</h1>
-    <p>Fincrypta — это независимый блог о криптовалютах и финансах. Мы публикуем статьи для инвесторов, майнеров и всех, кто интересуется цифровыми активами.</p>
+    <h1>О проекте Fincrypta</h1>
+    <p><strong>Fincrypta</strong> — это независимый блог о криптовалютах, инвестициях и цифровых финансах в России. Мы создаём статьи для новичков и опытных инвесторов, чтобы помочь разобраться в сложном мире криптоэкономики.</p>
+
+    <h2>Наши темы</h2>
+    <ul>
+      <li>Покупка и продажа криптовалют в России</li>
+      <li>Законодательство и налогообложение</li>
+      <li>Инвестиции и аналитика крипторынка</li>
+      <li>Безопасность и хранение цифровых активов</li>
+      <li>Майнинг и облачные решения</li>
+      <li>Взаимодействие банков и криптовалют</li>
+    </ul>
+
+    <h2>Наша цель</h2>
+    <p>Мы стремимся сделать криптовалюты понятными и доступными для всех. Материалы на сайте носят исключительно образовательный характер и не являются инвестиционной рекомендацией.</p>
   </main>
 
   <footer>
@@ -34,7 +60,7 @@
     <a href="disclaimer.html" class="footer-link">Дисклеймер</a> |
     <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
   </footer>
-<!-- Скрипт для гамбургера -->
+
   <script>
   function toggleMenu() {
     document.getElementById("navbar").classList.toggle("show");
