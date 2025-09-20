@@ -1,29 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <link rel="icon" href="../favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Биткоин (BTC) — курс, аналитика и прогнозы</title>
-    <meta name="description" content="Всё о биткоине: текущий курс, графики, прогнозы и новости. Узнайте, как развивается главная криптовалюта мира.">
-  <link rel="stylesheet" href="../style.css">
+
+  <!-- SEO -->
+  <title>Биткоин (BTC) — Fincrypta</title>
+  <meta name="description" content="Статьи и аналитика о биткоине: прогнозы, халвинг, цена BTC и влияние на рынок. Все о главной криптовалюте.">
+
+  <!-- Иконка -->
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+  <!-- Стили -->
+  <link rel="preload" href="../style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../style.css"></noscript>
 </head>
 <body>
 <header>
-  <nav>
-    <button class="menu-toggle" onclick="document.querySelector('.navbar').classList.toggle('show')">☰</button>
-    <ul class="navbar">
+  <nav role="navigation">
+    <button class="menu-toggle" onclick="toggleMenu()" aria-controls="navbar" aria-expanded="false">☰</button>
+    <ul class="navbar" id="navbar">
       <li><a href="../index.html">Главная</a></li>
       <li>
         <a href="#">Категории ▾</a>
         <ul class="submenu">
           <li><a href="news.html">Новости криптовалют</a></li>
-          <li><a href="bitcoin.html">Биткоин (BTC)</a></li>
+          <li><a href="bitcoin.html" class="active">Биткоин (BTC)</a></li>
           <li><a href="altcoins.html">Альткоины (ETH, SOL, TON и др.)</a></li>
           <li><a href="exchange.html">Обмен и покупка криптовалют</a></li>
           <li><a href="exchanges.html">Криптобиржи (Binance, Bybit, OKX, Huobi)</a></li>
-          <li><a href="wallets.html">Обзоры кошельков (Metamask, Trust Wallet, холодные)</a></li>
+          <li><a href="wallets.html">Обзоры кошельков</a></li>
           <li><a href="mining.html">Майнинг и стейкинг</a></li>
           <li><a href="defi-nft.html">DeFi и NFT</a></li>
           <li><a href="regulation.html">Законы и регулирование</a></li>
@@ -36,27 +42,32 @@
   </nav>
 </header>
 
-  <main class="container">
-    <h1>Биткоин (BTC) — курс, новости и аналитика</h1>
-    <p>Узнайте последние новости о Биткоине (BTC), его текущий курс, прогнозы экспертов и полезные советы для инвесторов и трейдеров.</p>
-    <ul>
-    <li><a href="articles/Chto budet s bitkoinom posle khalvinga.html">Что будет с биткоином после халвинга?</a></li>
+<main class="container">
+  <h1>Биткоин (BTC)</h1>
+  <p><strong>Биткоин</strong> — первая и самая популярная криптовалюта, которая стала символом децентрализации и цифровых денег.</p>
+  <p>Здесь вы найдете прогнозы цены BTC, аналитику по халвингу, новости о майнинге и влияние биткоина на мировой рынок.</p>
+
+  <h2>Статьи раздела</h2>
+  <ul>
+    <li><a href="../articles/Chto budet s bitkoinom posle khalvinga.html">Что будет с биткоином после халвинга?</a></li>
     <!-- сюда можно добавлять новые статьи -->
   </ul>
-  </main>
+</main>
 
-  <footer>
-    © 2025 Fincrypta |
-    <a href="../disclaimer.html" class="footer-link">Дисклеймер</a> |
-    <a href="../privacy.html" class="footer-link">Политика конфиденциальности</a>
-  </footer>
- <!-- Скрипт для гамбургера -->
-  <script>
-  function toggleMenu() {
-    document.getElementById("navbar").classList.toggle("show");
-  }
-  </script>
+<footer>
+  © 2025 Fincrypta |
+  <a href="../disclaimer.html" class="footer-link">Дисклеймер</a> |
+  <a href="../privacy.html" class="footer-link">Политика конфиденциальности</a>
+</footer>
+
+<script>
+function toggleMenu() {
+  const navbar = document.getElementById("navbar");
+  const btn = document.querySelector(".menu-toggle");
+  const expanded = btn.getAttribute("aria-expanded") === "true";
+  btn.setAttribute("aria-expanded", !expanded);
+  navbar.classList.toggle("show");
+}
+</script>
 </body>
 </html>
-
-
