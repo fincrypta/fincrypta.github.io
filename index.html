@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <!-- Верификация -->
   <meta name="yandex-verification" content="8c90bf86f15ec650" />
   <meta name="google-site-verification" content="w44haSnP8Svsc1Up7wN8e2P2fwQjBSWNbEt78ih3cmU" />
+
+  <!-- Базовые метатеги -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fincrypta — криптовалюты, инвестиции и безопасность в 2025</title>
+
+  <!-- SEO -->
+  <title>Fincrypta — всё о криптовалютах, инвестициях и безопасности в 2025</title>
   <meta name="description" content="Fincrypta — сайт о криптовалютах, инвестициях, майнинге и законах в России. Аналитика, безопасность и актуальные новости крипторынка в 2025 году.">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Иконка -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Оптимизация стилей -->
+  <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
+
+  <!-- Schema.org -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -19,15 +31,20 @@
     "publisher": {
       "@type": "Organization",
       "name": "Fincrypta"
+    },
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://fincrypta.github.io/search?q={search_term_string}",
+      "query-input": "required name=search_term_string"
     }
   }
   </script>
 </head>
 <body>
 <header>
-  <nav>
-    <button class="menu-toggle" onclick="document.querySelector('.navbar').classList.toggle('show')">☰</button>
-    <ul class="navbar">
+  <nav role="navigation">
+    <button class="menu-toggle" onclick="toggleMenu()" aria-controls="navbar" aria-expanded="false">☰</button>
+    <ul class="navbar" id="navbar">
       <li><a href="index.html">Главная</a></li>
       <li>
         <a href="#">Категории ▾</a>
@@ -49,21 +66,27 @@
     </ul>
   </nav>
 </header>
-  <main class="container">
-    <h1>Добро пожаловать в Fincrypta</h1>
-    <p>Fincrypta — это информационный портал о криптовалютах в России. Здесь вы найдёте полезные статьи о покупке и продаже цифровых активов, законах и налогах, инвестициях и аналитике, безопасности криптокошельков и особенностях майнинга в 2025 году.</p>
-  </main>
 
-  <footer>
-    © 2025 Fincrypta |
-    <a href="disclaimer.html" class="footer-link">Дисклеймер</a> |
-    <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
-  </footer>
+<main class="container">
+  <h1>Fincrypta — всё о криптовалютах, инвестициях и безопасности</h1>
+  <p>Fincrypta — это информационный портал о криптовалютах в России. Здесь вы найдёте полезные статьи о покупке и продаже цифровых активов, законах и налогах, инвестициях и аналитике, безопасности криптокошельков и особенностях майнинга в 2025 году.</p>
+</main>
 
-  <script>
-  function toggleMenu() {
-    document.getElementById("navbar").classList.toggle("show");
-  }
-  </script>
+<footer>
+  © 2025 Fincrypta |
+  <a href="disclaimer.html" class="footer-link">Дисклеймер</a> |
+  <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
+</footer>
+
+<!-- Скрипт -->
+<script>
+function toggleMenu() {
+  const navbar = document.getElementById("navbar");
+  const btn = document.querySelector(".menu-toggle");
+  const expanded = btn.getAttribute("aria-expanded") === "true";
+  btn.setAttribute("aria-expanded", !expanded);
+  navbar.classList.toggle("show");
+}
+</script>
 </body>
 </html>
