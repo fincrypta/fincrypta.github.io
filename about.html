@@ -3,28 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>О проекте — Fincrypta</title>
-  <meta name="description" content="Fincrypta — независимый блог о криптовалютах и финансах. Мы публикуем статьи для инвесторов, майнеров и всех, кто интересуется цифровыми активами.">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "AboutPage",
-    "name": "О проекте — Fincrypta",
-    "description": "Fincrypta — независимый блог о криптовалютах, инвестициях, майнинге и финансах в России.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Fincrypta"
-    }
-  }
-  </script>
+
+  <!-- SEO -->
+  <title>О проекте Fincrypta</title>
+  <meta name="description" content="Узнайте больше о проекте Fincrypta: цель сайта, миссия и ценности. Криптовалюты, инвестиции и безопасность в 2025 году.">
+
+  <!-- Иконка -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Стили -->
+  <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
 </head>
 <body>
 <header>
-  <nav>
-    <button class="menu-toggle" onclick="document.querySelector('.navbar').classList.toggle('show')">☰</button>
-    <ul class="navbar">
+  <nav role="navigation">
+    <button class="menu-toggle" onclick="toggleMenu()" aria-controls="navbar" aria-expanded="false">☰</button>
+    <ul class="navbar" id="navbar">
       <li><a href="index.html">Главная</a></li>
       <li>
         <a href="#">Категории ▾</a>
@@ -34,46 +29,54 @@
           <li><a href="blog/altcoins.html">Альткоины (ETH, SOL, TON и др.)</a></li>
           <li><a href="blog/exchange.html">Обмен и покупка криптовалют</a></li>
           <li><a href="blog/exchanges.html">Криптобиржи (Binance, Bybit, OKX, Huobi)</a></li>
-          <li><a href="blog/wallets.html">Обзоры кошельков (Metamask, Trust Wallet, холодные)</a></li>
+          <li><a href="blog/wallets.html">Обзоры кошельков</a></li>
           <li><a href="blog/mining.html">Майнинг и стейкинг</a></li>
           <li><a href="blog/defi-nft.html">DeFi и NFT</a></li>
           <li><a href="blog/regulation.html">Законы и регулирование</a></li>
           <li><a href="blog/trading.html">Инвестиции и трейдинг</a></li>
         </ul>
       </li>
-      <li><a href="about.html">О проекте</a></li>
+      <li><a href="about.html" class="active">О проекте</a></li>
       <li><a href="contacts.html">Контакты</a></li>
     </ul>
   </nav>
 </header>
-  <main class="container">
-    <h1>О проекте Fincrypta</h1>
-    <p><strong>Fincrypta</strong> — это независимый блог о криптовалютах, инвестициях и цифровых финансах в России. Мы создаём статьи для новичков и опытных инвесторов, чтобы помочь разобраться в сложном мире криптоэкономики.</p>
 
-    <h2>Наши темы</h2>
-    <ul>
-      <li>Покупка и продажа криптовалют в России</li>
-      <li>Законодательство и налогообложение</li>
-      <li>Инвестиции и аналитика крипторынка</li>
-      <li>Безопасность и хранение цифровых активов</li>
-      <li>Майнинг и облачные решения</li>
-      <li>Взаимодействие банков и криптовалют</li>
-    </ul>
+<main class="container">
+  <h1>О проекте Fincrypta</h1>
+  <p><em>Последнее обновление: сентябрь 2025</em></p>
 
-    <h2>Наша цель</h2>
-    <p>Мы стремимся сделать криптовалюты понятными и доступными для всех. Материалы на сайте носят исключительно образовательный характер и не являются инвестиционной рекомендацией.</p>
-  </main>
+  <h2>Наша миссия</h2>
+  <p>Fincrypta создан для того, чтобы помогать пользователям разбираться в мире криптовалют. Мы освещаем последние новости, делимся аналитикой и обучающими материалами, чтобы сделать крипторынок более доступным.</p>
 
-  <footer>
-    © 2025 Fincrypta |
-    <a href="disclaimer.html" class="footer-link">Дисклеймер</a> |
-    <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
-  </footer>
+  <h2>О чём мы пишем</h2>
+  <ul>
+    <li>Биткоин и альткоины</li>
+    <li>Инвестиции и трейдинг</li>
+    <li>Криптобиржи и кошельки</li>
+    <li>Майнинг и стейкинг</li>
+    <li>Законы и регулирование криптовалют</li>
+    <li>Безопасность в мире цифровых активов</li>
+  </ul>
 
-  <script>
-  function toggleMenu() {
-    document.getElementById("navbar").classList.toggle("show");
-  }
-  </script>
+  <h2>Наша цель</h2>
+  <p>Мы стремимся создавать качественный контент, который помогает инвесторам, трейдерам и энтузиастам криптовалют принимать взвешенные решения.</p>
+</main>
+
+<footer>
+  © 2025 Fincrypta |
+  <a href="disclaimer.html" class="footer-link">Дисклеймер</a> |
+  <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
+</footer>
+
+<script>
+function toggleMenu() {
+  const navbar = document.getElementById("navbar");
+  const btn = document.querySelector(".menu-toggle");
+  const expanded = btn.getAttribute("aria-expanded") === "true";
+  btn.setAttribute("aria-expanded", !expanded);
+  navbar.classList.toggle("show");
+}
+</script>
 </body>
 </html>
