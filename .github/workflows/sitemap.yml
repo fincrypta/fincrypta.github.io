@@ -20,7 +20,6 @@ jobs:
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
 
-          # Функция для добавления URL с датой
           add_url () {
             url=$1
             file=$2
@@ -33,13 +32,13 @@ jobs:
           # Главная
           add_url "https://fincrypta.github.io/" index.html
 
-          # Все страницы в blog/
-          for file in blog/*.html; do
-            fname=$(basename $file)
-            add_url "https://fincrypta.github.io/blog/$fname" "$file"
+          # Все HTML-файлы в blog/ и вложенных папках
+          for file in $(find blog -name "*.html"); do
+            relpath=$(realpath --relative-to=. "$file")
+            add_url "https://fincrypta.github.io/$relpath" "$file"
           done
 
-          # Остальные страницы
+          # Остальные страницы (корень)
           for file in about.html contacts.html disclaimer.html privacy.html; do
             add_url "https://fincrypta.github.io/$file" "$file"
           done
