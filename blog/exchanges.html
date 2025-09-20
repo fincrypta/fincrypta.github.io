@@ -1,19 +1,25 @@
-
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <link rel="icon" href="../favicon.ico" type="image/x-icon">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Криптобиржи — Binance, Bybit, OKX, Huobi</title>
+
+  <!-- SEO -->
+<title>Криптобиржи — Binance, Bybit, OKX, Huobi</title>
     <meta name="description" content="Сравнение и обзоры крупнейших криптобирж: Binance, Bybit, OKX и Huobi. Комиссии, удобство, безопасность и отзывы трейдеров.">
-  <link rel="stylesheet" href="../style.css">
+
+  <!-- Иконка -->
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+  <!-- Стили -->
+  <link rel="preload" href="../style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../style.css"></noscript>
 </head>
 <body>
 <header>
-  <nav>
-    <button class="menu-toggle" onclick="document.querySelector('.navbar').classList.toggle('show')">☰</button>
-    <ul class="navbar">
+  <nav role="navigation">
+    <button class="menu-toggle" onclick="toggleMenu()" aria-controls="navbar" aria-expanded="false">☰</button>
+    <ul class="navbar" id="navbar">
       <li><a href="../index.html">Главная</a></li>
       <li>
         <a href="#">Категории ▾</a>
@@ -36,26 +42,31 @@
   </nav>
 </header>
 
-  <main class="container">
-    <h1>Криптобиржи: Binance, Bybit, OKX, Huobi и другие</h1>
+<main class="container">
+      <h1>Криптобиржи: Binance, Bybit, OKX, Huobi и другие</h1>
     <p>Обзоры крупнейших криптобирж: Binance, Bybit, OKX, Huobi. Сравнение условий торговли, комиссий и удобства работы с платформами.</p>
-    <ul>
-    <li><a href="articles/kak-kupit-bitkoin-za-rubli-cherez-sberbank-2025.html">Как купить биткоин за рубли через Сбербанк в 2025</a></li>
+
+  <h2>Статьи раздела</h2>
+  <ul>
+ <!--   <li><a href="articles/Chto budet s bitkoinom posle khalvinga.html">Что будет с биткоином после халвинга?</a></li> -->
     <!-- сюда можно добавлять новые статьи -->
   </ul>
-  </main>
+</main>
 
-  <footer>
-    © 2025 Fincrypta |
-    <a href="../disclaimer.html" class="footer-link">Дисклеймер</a> |
-    <a href="../privacy.html" class="footer-link">Политика конфиденциальности</a>
-  </footer>
- <!-- Скрипт для гамбургера -->
-  <script>
-  function toggleMenu() {
-    document.getElementById("navbar").classList.toggle("show");
-  }
-  </script>
+<footer>
+  © 2025 Fincrypta |
+  <a href="../disclaimer.html" class="footer-link">Дисклеймер</a> |
+  <a href="../privacy.html" class="footer-link">Политика конфиденциальности</a>
+</footer>
+
+<script>
+function toggleMenu() {
+  const navbar = document.getElementById("navbar");
+  const btn = document.querySelector(".menu-toggle");
+  const expanded = btn.getAttribute("aria-expanded") === "true";
+  btn.setAttribute("aria-expanded", !expanded);
+  navbar.classList.toggle("show");
+}
+</script>
 </body>
 </html>
-
