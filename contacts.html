@@ -3,32 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Контакты — Fincrypta</title>
-  <meta name="description" content="Свяжитесь с Fincrypta: почта info@fincrypta.com для вопросов по криптовалютам, инвестициям, аналитике и безопасности.">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ContactPage",
-    "mainEntity": {
-      "@type": "Organization",
-      "name": "Fincrypta",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "email": "info@fincrypta.com",
-        "contactType": "customer support",
-        "availableLanguage": "Russian"
-      }
-    }
-  }
-  </script>
+
+  <!-- SEO -->
+  <title>Контакты Fincrypta</title>
+  <meta name="description" content="Свяжитесь с Fincrypta: форма обратной связи и контактная информация для вопросов о криптовалютах и инвестициях.">
+
+  <!-- Иконка -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Стили -->
+  <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
 </head>
 <body>
 <header>
-  <nav>
-    <button class="menu-toggle" onclick="document.querySelector('.navbar').classList.toggle('show')">☰</button>
-    <ul class="navbar">
+  <nav role="navigation">
+    <button class="menu-toggle" onclick="toggleMenu()" aria-controls="navbar" aria-expanded="false">☰</button>
+    <ul class="navbar" id="navbar">
       <li><a href="index.html">Главная</a></li>
       <li>
         <a href="#">Категории ▾</a>
@@ -38,7 +29,7 @@
           <li><a href="blog/altcoins.html">Альткоины (ETH, SOL, TON и др.)</a></li>
           <li><a href="blog/exchange.html">Обмен и покупка криптовалют</a></li>
           <li><a href="blog/exchanges.html">Криптобиржи (Binance, Bybit, OKX, Huobi)</a></li>
-          <li><a href="blog/wallets.html">Обзоры кошельков (Metamask, Trust Wallet, холодные)</a></li>
+          <li><a href="blog/wallets.html">Обзоры кошельков</a></li>
           <li><a href="blog/mining.html">Майнинг и стейкинг</a></li>
           <li><a href="blog/defi-nft.html">DeFi и NFT</a></li>
           <li><a href="blog/regulation.html">Законы и регулирование</a></li>
@@ -46,32 +37,47 @@
         </ul>
       </li>
       <li><a href="about.html">О проекте</a></li>
-      <li><a href="contacts.html">Контакты</a></li>
+      <li><a href="contacts.html" class="active">Контакты</a></li>
     </ul>
   </nav>
 </header>
 
-  <main class="container">
-    <h1>Контакты</h1>
-    <p>Если у вас есть вопросы по материалам сайта, сотрудничеству или предложения — вы можете связаться с нами.</p>
+<main class="container">
+  <h1>Контакты Fincrypta</h1>
+  <p><em>Последнее обновление: сентябрь 2025</em></p>
 
-    <h2>Электронная почта</h2>
-    <p>Пишите на почту: <a href="mailto:info@fincrypta.com">info@fincrypta.com</a></p>
+  <h2>Обратная связь</h2>
+  <p>Если у вас есть вопросы, предложения или идеи для сотрудничества — свяжитесь с нами.</p>
 
-    <h2>Социальные сети</h2>
-    <p>Мы планируем завести Telegram-канал для обсуждений. Следите за обновлениями!</p>
-  </main>
+  <h2>Форма обратной связи</h2>
+  <form action="mailto:yourmail@example.com" method="post" enctype="text/plain">
+    <label for="name">Ваше имя:</label><br>
+    <input type="text" id="name" name="name" required><br><br>
 
-  <footer>
-    © 2025 Fincrypta |
-    <a href="disclaimer.html" class="footer-link">Дисклеймер</a> |
-    <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
-  </footer>
+    <label for="email">Ваш email:</label><br>
+    <input type="email" id="email" name="email" required><br><br>
 
-  <script>
-  function toggleMenu() {
-    document.getElementById("navbar").classList.toggle("show");
-  }
-  </script>
+    <label for="message">Сообщение:</label><br>
+    <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+    <button type="submit">Отправить</button>
+  </form>
+</main>
+
+<footer>
+  © 2025 Fincrypta |
+  <a href="disclaimer.html" class="footer-link">Дисклеймер</a> |
+  <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
+</footer>
+
+<script>
+function toggleMenu() {
+  const navbar = document.getElementById("navbar");
+  const btn = document.querySelector(".menu-toggle");
+  const expanded = btn.getAttribute("aria-expanded") === "true";
+  btn.setAttribute("aria-expanded", !expanded);
+  navbar.classList.toggle("show");
+}
+</script>
 </body>
 </html>
