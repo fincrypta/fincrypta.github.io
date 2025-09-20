@@ -3,38 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Что будет с биткоином после халвинга? Прогнозы экспертов</title>
-  <meta name="description" content="Узнайте, как халвинг влияет на цену биткоина, сложность майнинга и рынок криптовалют. Анализ прогнозов и возможных сценариев.">
-  <link rel="stylesheet" href="../../style.css">
+
+  <!-- SEO -->
+  <title>Что будет с биткоином после халвинга? Прогнозы экспертов — Fincrypta</title>
+    <meta name="description" content="Анализ влияния халвинга на цену биткоина. История прошлых циклов и прогнозы экспертов на 2025 год.">
+
+  <!-- Иконка -->
+  <link rel="icon" href="../favicon.ico" type="image/x-icon">
+
+  <!-- Стили -->
+  <link rel="preload" href="../style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="../style.css"></noscript>
 </head>
 <body>
- <header>
-  <nav>
-    <button class="menu-toggle" onclick="document.querySelector('.navbar').classList.toggle('show')">☰</button>
-    <ul class="navbar">
-      <li><a href="../../index.html">Главная</a></li>
+<header>
+  <nav role="navigation">
+    <button class="menu-toggle" onclick="toggleMenu()" aria-controls="navbar" aria-expanded="false">☰</button>
+    <ul class="navbar" id="navbar">
+      <li><a href="../index.html">Главная</a></li>
       <li>
         <a href="#">Категории ▾</a>
         <ul class="submenu">
-          <li><a href="../news.html">Новости криптовалют</a></li>
-          <li><a href="../bitcoin.html">Биткоин (BTC)</a></li>
-          <li><a href="../altcoins.html">Альткоины (ETH, SOL, TON и др.)</a></li>
-          <li><a href="../exchange.html">Обмен и покупка криптовалют</a></li>
-          <li><a href="../exchanges.html">Криптобиржи (Binance, Bybit, OKX, Huobi)</a></li>
-          <li><a href="../wallets.html">Обзоры кошельков (Metamask, Trust Wallet, холодные)</a></li>
-          <li><a href="../mining.html">Майнинг и стейкинг</a></li>
-          <li><a href="../defi-nft.html">DeFi и NFT</a></li>
-          <li><a href="../regulation.html">Законы и регулирование</a></li>
-          <li><a href="../trading.html">Инвестиции и трейдинг</a></li>
+          <li><a href="news.html">Новости криптовалют</a></li>
+          <li><a href="bitcoin.html">Биткоин (BTC)</a></li>
+          <li><a href="altcoins.html">Альткоины (ETH, SOL, TON и др.)</a></li>
+          <li><a href="exchange.html">Обмен и покупка криптовалют</a></li>
+          <li><a href="exchanges.html">Криптобиржи (Binance, Bybit, OKX, Huobi)</a></li>
+          <li><a href="wallets.html">Обзоры кошельков (Metamask, Trust Wallet, холодные)</a></li>
+          <li><a href="mining.html">Майнинг и стейкинг</a></li>
+          <li><a href="defi-nft.html">DeFi и NFT</a></li>
+          <li><a href="regulation.html">Законы и регулирование</a></li>
+          <li><a href="trading.html">Инвестиции и трейдинг</a></li>
         </ul>
       </li>
-      <li><a href="../../about.html">О проекте</a></li>
-      <li><a href="../../contacts.html">Контакты</a></li>
+      <li><a href="../about.html">О проекте</a></li>
+      <li><a href="../contacts.html">Контакты</a></li>
     </ul>
   </nav>
 </header>
 
-  <main class="container">
+<main class="container">
     <article>
 
 <h1>Что будет с биткоином после халвинга: прогнозы экспертов и влияние на рынок</h1>
@@ -207,20 +215,22 @@
 </div>
 
     </article>
-  </main>
+</main>
 
-  <!-- Футер -->
-  <footer>
-    © 2025 Fincrypta. 
-    <a href="../../disclaimer.html" class="footer-link">Дисклеймер</a> | 
-    <a href="../../privacy.html" class="footer-link">Политика конфиденциальности</a>
-  </footer>
-<!-- Скрипт для гамбургера -->
-  <script>
-  function toggleMenu() {
-    document.getElementById("navbar").classList.toggle("show");
-  }
-  </script>
+<footer>
+  © 2025 Fincrypta |
+  <a href="../disclaimer.html" class="footer-link">Дисклеймер</a> |
+  <a href="../privacy.html" class="footer-link">Политика конфиденциальности</a>
+</footer>
+
+<script>
+function toggleMenu() {
+  const navbar = document.getElementById("navbar");
+  const btn = document.querySelector(".menu-toggle");
+  const expanded = btn.getAttribute("aria-expanded") === "true";
+  btn.setAttribute("aria-expanded", !expanded);
+  navbar.classList.toggle("show");
+}
+</script>
 </body>
 </html>
-
