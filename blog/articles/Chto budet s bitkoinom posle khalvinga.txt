@@ -1,53 +1,41 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Что будет с биткоином после халвинга?</title>
-    <style>
-        body {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-        h1 {
-            color: #2c3e50;
-            border-bottom: 3px solid #f39c12;
-            padding-bottom: 10px;
-        }
-        h2 {
-            color: #34495e;
-            margin-top: 30px;
-        }
-        h3 {
-            color: #5d6d7e;
-            margin-top: 25px;
-        }
-        p {
-            margin-bottom: 15px;
-        }
-        ul, ol {
-            margin-bottom: 15px;
-            padding-left: 30px;
-        }
-        li {
-            margin-bottom: 8px;
-        }
-        strong {
-            color: #2c3e50;
-        }
-        .cta {
-            background-color: #ecf0f1;
-            padding: 20px;
-            border-left: 4px solid #f39c12;
-            margin-top: 30px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Как купить биткоин за рубли через Сбербанк в 2025</title>
+  <meta name="description" content="Подробное руководство о том, как купить биткоин за рубли через Сбербанк в 2025 году. P2P-платформы, обменники, комиссии и меры безопасности.">
+  <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
+ <header>
+  <nav>
+    <button class="menu-toggle" onclick="document.querySelector('.navbar').classList.toggle('show')">☰</button>
+    <ul class="navbar">
+      <li><a href="../../index.html">Главная</a></li>
+      <li>
+        <a href="#">Категории ▾</a>
+        <ul class="submenu">
+          <li><a href="../news.html">Новости криптовалют</a></li>
+          <li><a href="../bitcoin.html">Биткоин (BTC)</a></li>
+          <li><a href="../altcoins.html">Альткоины (ETH, SOL, TON и др.)</a></li>
+          <li><a href="../exchange.html">Обмен и покупка криптовалют</a></li>
+          <li><a href="../exchanges.html">Криптобиржи (Binance, Bybit, OKX, Huobi)</a></li>
+          <li><a href="../wallets.html">Обзоры кошельков (Metamask, Trust Wallet, холодные)</a></li>
+          <li><a href="../mining.html">Майнинг и стейкинг</a></li>
+          <li><a href="../defi-nft.html">DeFi и NFT</a></li>
+          <li><a href="../regulation.html">Законы и регулирование</a></li>
+          <li><a href="../trading.html">Инвестиции и трейдинг</a></li>
+        </ul>
+      </li>
+      <li><a href="../../about.html">О проекте</a></li>
+      <li><a href="../../contacts.html">Контакты</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main class="container">
+    <article>
 
 <h1>Что будет с биткоином после халвинга: прогнозы экспертов и влияние на рынок</h1>
 
@@ -218,5 +206,20 @@
 <p>Подпишитесь на наши обновления, чтобы получать актуальные анализы рынка, экспертные прогнозы и стратегии инвестирования в криптовалюты. Ваше <strong>будущее в мире цифровых активов</strong> начинается прямо сейчас!</p>
 </div>
 
+    </article>
+  </main>
+
+  <!-- Футер -->
+  <footer>
+    © 2025 Fincrypta. 
+    <a href="../../disclaimer.html" class="footer-link">Дисклеймер</a> | 
+    <a href="../../privacy.html" class="footer-link">Политика конфиденциальности</a>
+  </footer>
+<!-- Скрипт для гамбургера -->
+  <script>
+  function toggleMenu() {
+    document.getElementById("navbar").classList.toggle("show");
+  }
+  </script>
 </body>
 </html>
