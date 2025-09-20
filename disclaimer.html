@@ -3,28 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Дисклеймер — Fincrypta</title>
-  <meta name="description" content="Дисклеймер Fincrypta: материалы сайта носят исключительно информационный характер и не являются инвестиционной рекомендацией.">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="stylesheet" href="style.css">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "Дисклеймер — Fincrypta",
-    "description": "Дисклеймер Fincrypta: материалы сайта носят исключительно информационный характер и не являются инвестиционной рекомендацией.",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Fincrypta"
-    }
-  }
-  </script>
+
+  <!-- SEO -->
+  <title>Дисклеймер Fincrypta</title>
+  <meta name="description" content="Дисклеймер Fincrypta: информация на сайте не является финансовой консультацией. Ознакомьтесь с рисками, связанными с инвестициями в криптовалюты.">
+
+  <!-- Иконка -->
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <!-- Стили -->
+  <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="style.css"></noscript>
 </head>
 <body>
 <header>
-  <nav>
-    <button class="menu-toggle" onclick="document.querySelector('.navbar').classList.toggle('show')">☰</button>
-    <ul class="navbar">
+  <nav role="navigation">
+    <button class="menu-toggle" onclick="toggleMenu()" aria-controls="navbar" aria-expanded="false">☰</button>
+    <ul class="navbar" id="navbar">
       <li><a href="index.html">Главная</a></li>
       <li>
         <a href="#">Категории ▾</a>
@@ -34,7 +29,7 @@
           <li><a href="blog/altcoins.html">Альткоины (ETH, SOL, TON и др.)</a></li>
           <li><a href="blog/exchange.html">Обмен и покупка криптовалют</a></li>
           <li><a href="blog/exchanges.html">Криптобиржи (Binance, Bybit, OKX, Huobi)</a></li>
-          <li><a href="blog/wallets.html">Обзоры кошельков (Metamask, Trust Wallet, холодные)</a></li>
+          <li><a href="blog/wallets.html">Обзоры кошельков</a></li>
           <li><a href="blog/mining.html">Майнинг и стейкинг</a></li>
           <li><a href="blog/defi-nft.html">DeFi и NFT</a></li>
           <li><a href="blog/regulation.html">Законы и регулирование</a></li>
@@ -46,29 +41,38 @@
     </ul>
   </nav>
 </header>
-  <main class="container">
-    <h1>Дисклеймер</h1>
 
-    <h2>Образовательный характер информации</h2>
-    <p>Информация, размещённая на сайте Fincrypta, носит исключительно образовательный и справочный характер.</p>
+<main class="container">
+  <h1>Дисклеймер</h1>
+  <p><em>Последнее обновление: сентябрь 2025</em></p>
 
-    <h2>Нет инвестиционных рекомендаций</h2>
-    <p>Мы не являемся финансовыми консультантами и не предоставляем инвестиционных советов.</p>
+  <h2>Общая информация</h2>
+  <p>Материалы, опубликованные на сайте <strong>Fincrypta</strong>, предоставлены исключительно в информационных целях. Мы не предоставляем инвестиционных, финансовых, юридических или налоговых консультаций.</p>
 
-    <h2>Ответственность пользователя</h2>
-    <p>Все решения, связанные с покупкой, продажей или хранением криптовалюты, пользователи принимают самостоятельно и на свой риск. Администрация сайта не несёт ответственности за возможные убытки или последствия, связанные с использованием материалов.</p>
-  </main>
+  <h2>Финансовые риски</h2>
+  <p>Инвестиции в криптовалюты связаны с высоким уровнем риска. Их стоимость может значительно колебаться, и существует вероятность полной потери вложенных средств. Перед любыми инвестиционными решениями рекомендуем проконсультироваться с независимым финансовым советником.</p>
 
-  <footer>
-    © 2025 Fincrypta |
-    <a href="disclaimer.html" class="footer-link">Дисклеймер</a> |
-    <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
-  </footer>
+  <h2>Отказ от ответственности</h2>
+  <p>Fincrypta и авторы материалов не несут ответственности за возможные убытки или последствия, возникшие в результате использования информации, размещённой на сайте.</p>
 
-  <script>
-  function toggleMenu() {
-    document.getElementById("navbar").classList.toggle("show");
-  }
-  </script>
+  <h2>Сторонние ресурсы</h2>
+  <p>На нашем сайте могут содержаться ссылки на сторонние ресурсы. Мы не контролируем их содержание и не несём ответственности за информацию, опубликованную на этих сайтах.</p>
+</main>
+
+<footer>
+  © 2025 Fincrypta |
+  <a href="disclaimer.html" class="footer-link">Дисклеймер</a> |
+  <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
+</footer>
+
+<script>
+function toggleMenu() {
+  const navbar = document.getElementById("navbar");
+  const btn = document.querySelector(".menu-toggle");
+  const expanded = btn.getAttribute("aria-expanded") === "true";
+  btn.setAttribute("aria-expanded", !expanded);
+  navbar.classList.toggle("show");
+}
+</script>
 </body>
 </html>
