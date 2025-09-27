@@ -34,7 +34,7 @@ jobs:
 
           # Все HTML-файлы в blog/ и вложенных папках
           for file in $(find blog -name "*.html"); do
-            relpath=$(realpath --relative-to=. "$file")
+            relpath=$(echo "$file" | sed 's|^\./||')
             add_url "https://fincrypta.github.io/$relpath" "$file"
           done
 
