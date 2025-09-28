@@ -217,3 +217,37 @@ footer {
   color: #0077cc;
   text-decoration: underline;
 }
+.latest-posts {
+  margin-top: 40px;
+  padding: 20px;
+  background: #f9f9f9;
+  border-left: 4px solid #0077cc;
+  border-radius: 6px;
+}
+
+.latest-posts h2 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  color: #0077cc;
+}
+
+.latest-posts ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.latest-posts li {
+  margin: 8px 0;
+}
+
+.latest-posts a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.latest-posts a:hover {
+  color: #0077cc;
+  text-decoration: underline;
+}
