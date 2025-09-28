@@ -86,6 +86,10 @@
 <main class="container">
   <h1>Fincrypta — всё о криптовалютах, инвестициях и безопасности</h1>
   <p>Fincrypta — это информационный портал о криптовалютах в России. Здесь вы найдёте полезные статьи о покупке и продаже цифровых активов, законах и налогах, инвестициях и аналитике, безопасности криптокошельков и особенностях майнинга в 2025 году.</p>
+<section class="latest-posts">
+  <h2>Последние статьи</h2>
+  <ul id="posts-list"></ul>
+</section>
 </main>
 
 <footer>
@@ -104,11 +108,6 @@ function toggleMenu() {
   navbar.classList.toggle("show");
 }
 </script>
-  <section class="latest-posts">
-  <h2>Последние статьи</h2>
-  <ul id="posts-list"></ul>
-</section>
-
 <script>
 async function loadLatestPosts() {
   try {
@@ -164,6 +163,5 @@ async function loadLatestPosts() {
 
 loadLatestPosts();
 </script>
-
-</body>
+ </body>
 </html>
