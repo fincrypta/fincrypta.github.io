@@ -183,3 +183,37 @@ footer {
 .footer-link:hover {
   color: #ffd966;
 }
+.related-articles {
+  margin-top: 30px;
+  padding: 15px 20px;
+  background: #f9f9f9;
+  border-left: 4px solid #0077cc;
+  border-radius: 6px;
+}
+
+.related-articles h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #0077cc;
+}
+
+.related-articles ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.related-articles li {
+  margin: 6px 0;
+}
+
+.related-articles a {
+  text-decoration: none;
+  color: #333;
+  transition: color 0.2s ease;
+}
+
+.related-articles a:hover {
+  color: #0077cc;
+  text-decoration: underline;
+}
