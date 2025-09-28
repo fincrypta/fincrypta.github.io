@@ -104,5 +104,66 @@ function toggleMenu() {
   navbar.classList.toggle("show");
 }
 </script>
+  <section class="latest-posts">
+  <h2>Последние статьи</h2>
+  <ul id="posts-list"></ul>
+</section>
+
+<script>
+async function loadLatestPosts() {
+  try {
+    const response = await fetch("sitemap.xml");
+    const text = await response.text();
+    const parser = new DOMParser();
+    const xml = parser.parseFromString(text, "application/xml");
+
+    // Собираем все ссылки
+    const urls = [...xml.querySelectorAll("url loc")].map(loc => loc.textContent);
+
+    // Фильтруем только статьи
+    const articleUrls = urls.filter(u =>
+      !u.includes("index") &&
+      !u.includes("about") &&
+      !u.includes("contacts") &&
+      !u.includes("privacy") &&
+      !u.includes("disclaimer")
+    );
+
+    // Берём последние 5 статей
+    const latest = articleUrls.slice(-5).reverse();
+
+    const container = document.getElementById("posts-list");
+
+    for (let link of latest) {
+      try {
+        // Загружаем каждую страницу
+        const res = await fetch(link);
+        const html = await res.text();
+        const doc = new DOMParser().parseFromString(html, "text/html");
+
+        // Ищем <title>
+        let title = doc.querySelector("title")?.innerText || link;
+
+        // Убираем название сайта из title (после тире/длинного тире)
+        title = title.replace(/[-—–].*$/, "").trim();
+
+        // Добавляем ссылку в список
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="${link}">${title}</a>`;
+        container.appendChild(li);
+
+      } catch (err) {
+        console.error("Ошибка при загрузке статьи:", link, err);
+      }
+    }
+
+  } catch (err) {
+    console.error("Ошибка загрузки sitemap:", err);
+  }
+}
+
+loadLatestPosts();
+</script>
+
 </body>
 </html>
