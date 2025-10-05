@@ -111,54 +111,67 @@ function toggleMenu() {
 <script>
 async function loadLatestPosts() {
   const container = document.getElementById("posts-list");
-  container.innerHTML = "<li>Загрузка статей...</li>";
+  container.innerHTML = "<li>Загрузка последних статей...</li>";
 
   try {
-    const res = await fetch("sitemap.xml");
-    const xml = new DOMParser().parseFromString(await res.text(), "application/xml");
+    const response = await fetch("sitemap.xml");
+    if (!response.ok) throw new Error("Ошибка sitemap: " + response.status);
 
-    // Собираем все URL из sitemap
-    const urls = [...xml.querySelectorAll("url loc")].map(loc => loc.textContent.trim());
+    const xml = new DOMParser().parseFromString(await response.text(), "application/xml");
 
-    // Фильтруем только статьи
-    const articleUrls = urls.filter(u =>
-      !/index|about|contacts|privacy|disclaimer|sitemap/.test(u)
+    // Собираем все URL и lastmod
+    const urls = [...xml.querySelectorAll("url")].map(u => ({
+      loc: u.querySelector("loc")?.textContent.trim(),
+      date: u.querySelector("lastmod")?.textContent || ""
+    }));
+
+    // Фильтруем служебные страницы
+    const articles = urls.filter(u =>
+      u.loc &&
+      !/index|about|contacts|privacy|disclaimer/.test(u.loc)
     );
 
-    // Берём последние 5 ссылок по порядку появления в sitemap
-    const latest = articleUrls.slice(-5).reverse();
+    // Сортируем по дате (если есть <lastmod>)
+    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-    // Создаём список в памяти, чтобы порядок не сбился
-    const items = [];
+    // Берём последние 5
+    const latest = articles.slice(0, 5);
 
-    for (const link of latest) {
+    container.innerHTML = "";
+
+    // Загружаем каждую статью
+    for (const { loc } of latest) {
       try {
-        const res = await fetch(link);
+        const res = await fetch(loc);
+        if (!res.ok) throw new Error("Ошибка загрузки: " + loc);
         const html = await res.text();
         const doc = new DOMParser().parseFromString(html, "text/html");
 
-        let title = doc.querySelector("title")?.innerText || link;
+        let title = doc.querySelector("title")?.innerText || loc;
         title = title.replace(/[-—–].*$/, "").trim();
 
-        items.push({ title, link });
+        const li = document.createElement("li");
+        li.innerHTML = `<a href="${loc}" rel="noopener noreferrer">${title}</a>`;
+        container.appendChild(li);
+
       } catch (err) {
-        console.error("Ошибка при загрузке статьи:", link, err);
+        console.error("Ошибка при загрузке статьи:", loc, err);
       }
     }
 
-    // После загрузки всех статей — рендерим в правильном порядке
-    container.innerHTML = items
-      .map(i => `<li><a href="${i.link}" rel="noopener noreferrer">${i.title}</a></li>`)
-      .join("");
+    if (!container.children.length) {
+      container.innerHTML = "<li>Пока нет опубликованных статей.</li>";
+    }
 
   } catch (err) {
     console.error("Ошибка загрузки sitemap:", err);
-    container.innerHTML = "<li>Не удалось загрузить список статей.</li>";
+    container.innerHTML = "<li>Не удалось загрузить статьи. Попробуйте позже.</li>";
   }
 }
 
 loadLatestPosts();
 </script>
+
 
  </body>
 </html>
