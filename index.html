@@ -109,67 +109,44 @@ function toggleMenu() {
 }
 </script>
 <script>
-async function loadLatestPosts() {
-  const container = document.getElementById("posts-list");
-  container.innerHTML = "<li>Загрузка последних статей...</li>";
+  // Список всех статей
+  const allArticles = [
+    { url: "Bitkoin-obnovil-maksimum-2025-goda.html", title: "Биткоин обновил максимум 2025 года" },
+    { url: "chto_budet_s_bitkoinom_posle_khalvinga.html", title: "Что будет с биткоином после халвинга" },
+    { url: "binance-v-2025-godu-rabotaet-li-dlya-rossiyan.html", title: "Binance в 2025 году: работает ли для россиян?" },
+    { url: "chto-takoe-defi-i-kak-ono-rabotaet-v-2025-godu.html", title: "Что такое DeFi и как оно работает в 2025 году" },
+    { url: "ethereum-vs-solana-kakaya-set-luchshe-v-2025.html", title: "Ethereum vs Solana: какая сеть лучше в 2025?" },
+    { url: "kak-kupit-bitkoin-za-rubli-cherez-sberbank-2025.html", title: "Как купить биткоин за рубли через Сбербанк в 2025" },
+    { url: "luchshie_bitkoin-koshelki_2025_goda.html", title: "Лучшие биткоин-кошельки 2025 года" },
+    { url: "vygoden-li-mayning-bitkoina-v-2025-godu.html", title: "Выгоден ли майнинг биткоина в 2025 году" },
+    { url: "ethereum-chto-izmenilos-v-seti-v-2025-godu.html", title: "Ethereum 2.0: что изменилось в сети в 2025 году" },
+    { url: "zakon_o_kriptovalyutakh_v_Rossii_v_2025_godu.html", title: "Закон о криптовалютах в России в 2025 году" },
+    { url: "kak-nachat-investirovat-v-kriptovalyutu-v-2025-godu.html", title: "Как начать инвестировать в криптовалюту в 2025 году" },
+    { url: "kak-khranit-bitcoin-v-2025-koshelki-i-bezopasnost.html", title: "Как хранить биткоин в 2025: кошельки и безопасность" },
+	{ url: "top-10-perspektivnykh-altkoinov-dlya-investitsiy.html", title: "Топ-10 перспективных альткоинов для инвестиций" },
+  ];
 
-  try {
-    const response = await fetch("sitemap.xml");
-    if (!response.ok) throw new Error("Ошибка sitemap: " + response.status);
+  // Определяем текущую страницу
+  const currentPage = window.location.pathname.split("/").pop();
 
-    const xml = new DOMParser().parseFromString(await response.text(), "application/xml");
+  // Убираем текущую статью
+  const filtered = allArticles.filter(a => a.url !== currentPage);
 
-    // Собираем все URL и lastmod
-    const urls = [...xml.querySelectorAll("url")].map(u => ({
-      loc: u.querySelector("loc")?.textContent.trim(),
-      date: u.querySelector("lastmod")?.textContent || ""
-    }));
-
-    // Фильтруем служебные страницы
-    const articles = urls.filter(u =>
-      u.loc &&
-      !/index|about|contacts|privacy|disclaimer/.test(u.loc)
-    );
-
-    // Сортируем по дате (если есть <lastmod>)
-    articles.sort((a, b) => new Date(b.date) - new Date(a.date));
-
-    // Берём последние 5
-    const latest = articles.slice(0, 5);
-
-    container.innerHTML = "";
-
-    // Загружаем каждую статью
-    for (const { loc } of latest) {
-      try {
-        const res = await fetch(loc);
-        if (!res.ok) throw new Error("Ошибка загрузки: " + loc);
-        const html = await res.text();
-        const doc = new DOMParser().parseFromString(html, "text/html");
-
-        let title = doc.querySelector("title")?.innerText || loc;
-        title = title.replace(/[-—–].*$/, "").trim();
-
-        const li = document.createElement("li");
-        li.innerHTML = `<a href="${loc}" rel="noopener noreferrer">${title}</a>`;
-        container.appendChild(li);
-
-      } catch (err) {
-        console.error("Ошибка при загрузке статьи:", loc, err);
-      }
-    }
-
-    if (!container.children.length) {
-      container.innerHTML = "<li>Пока нет опубликованных статей.</li>";
-    }
-
-  } catch (err) {
-    console.error("Ошибка загрузки sitemap:", err);
-    container.innerHTML = "<li>Не удалось загрузить статьи. Попробуйте позже.</li>";
+  // Перемешиваем массив
+  function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
   }
-}
 
-loadLatestPosts();
+  // Берем 3 случайные статьи
+  const related = shuffle(filtered).slice(0, 3);
+
+  // Выводим список
+  const list = document.getElementById("related-list");
+  related.forEach(article => {
+    const li = document.createElement("li");
+    li.innerHTML = `<a href="${article.url}">${article.title}</a>`;
+    list.appendChild(li);
+  });
 </script>
 
 
