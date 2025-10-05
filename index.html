@@ -114,27 +114,33 @@ async function loadLatestPosts() {
   container.innerHTML = "<li>Загрузка последних статей...</li>";
 
   try {
-    const response = await fetch("sitemap.xml");
-    if (!response.ok) throw new Error("Ошибка sitemap: " + response.status);
+    const res = await fetch("sitemap.xml");
+    const xml = new DOMParser().parseFromString(await res.text(), "application/xml");
 
-    const xml = new DOMParser().parseFromString(await response.text(), "application/xml");
+    // Собираем URL + дату
     const urls = [...xml.querySelectorAll("url")].map(u => ({
-      loc: u.querySelector("loc")?.textContent,
-      date: u.querySelector("lastmod")?.textContent
+      loc: u.querySelector("loc")?.textContent.trim(),
+      lastmod: u.querySelector("lastmod")?.textContent || ""
     }));
 
+    // Фильтруем статьи
     const articles = urls
-      .filter(u => u.loc && !/index|about|contacts|privacy|disclaimer/.test(u.loc))
-      .sort((a, b) => new Date(b.date) - new Date(a.date))
+      .filter(u =>
+        u.loc &&
+        !/index|about|contacts|privacy|disclaimer/.test(u.loc)
+      )
+      .sort((a, b) => new Date(b.lastmod) - new Date(a.lastmod)) // сортировка по дате
       .slice(0, 5);
 
     container.innerHTML = "";
 
+    // Теперь порядок строго соответствует дате изменения
     for (const { loc } of articles) {
       try {
-        const res = await fetch(loc);
-        const html = await res.text();
+        const pageRes = await fetch(loc);
+        const html = await pageRes.text();
         const doc = new DOMParser().parseFromString(html, "text/html");
+
         let title = doc.querySelector("title")?.innerText || loc;
         title = title.replace(/[-—–].*$/, "").trim();
 
@@ -147,10 +153,6 @@ async function loadLatestPosts() {
       }
     }
 
-    if (container.children.length === 0) {
-      container.innerHTML = "<li>Пока нет опубликованных статей.</li>";
-    }
-
   } catch (err) {
     console.error("Ошибка загрузки sitemap:", err);
     container.innerHTML = "<li>Не удалось загрузить статьи. Попробуйте позже.</li>";
@@ -158,6 +160,7 @@ async function loadLatestPosts() {
 }
 
 loadLatestPosts();
+
 </script>
 
  </body>
