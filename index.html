@@ -86,24 +86,6 @@
 <main class="container">
   <h1>Fincrypta — всё о криптовалютах, инвестициях и безопасности</h1>
   <p>Fincrypta — это информационный портал о криптовалютах в России. Здесь вы найдёте полезные статьи о покупке и продаже цифровых активов, законах и налогах, инвестициях и аналитике, безопасности криптокошельков и особенностях майнинга в 2025 году.</p>
-</main>
-
-<footer>
-  © 2025 Fincrypta |
-  <a href="disclaimer.html" class="footer-link">Дисклеймер</a> |
-  <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
-</footer>
-
-<!-- Скрипт -->
-<script>
-function toggleMenu() {
-  const navbar = document.getElementById("navbar");
-  const btn = document.querySelector(".menu-toggle");
-  const expanded = btn.getAttribute("aria-expanded") === "true";
-  btn.setAttribute("aria-expanded", !expanded);
-  navbar.classList.toggle("show");
-}
-</script>
 	<!-- Блок "Последние статьи" -->
 <section class="latest-posts">
   <h2>Последние статьи</h2>
@@ -149,6 +131,25 @@ function toggleMenu() {
     list.appendChild(li);
   });
 </script>
+</main>
+
+<footer>
+  © 2025 Fincrypta |
+  <a href="disclaimer.html" class="footer-link">Дисклеймер</a> |
+  <a href="privacy.html" class="footer-link">Политика конфиденциальности</a>
+</footer>
+
+<!-- Скрипт -->
+<script>
+function toggleMenu() {
+  const navbar = document.getElementById("navbar");
+  const btn = document.querySelector(".menu-toggle");
+  const expanded = btn.getAttribute("aria-expanded") === "true";
+  btn.setAttribute("aria-expanded", !expanded);
+  navbar.classList.toggle("show");
+}
+</script>
+
 
 
  </body>
