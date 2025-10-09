@@ -12,8 +12,8 @@ jobs:
       contents: write
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Generate sitemap.xml
         run: |
@@ -25,22 +25,33 @@ jobs:
             file=$2
             if [ -f "$file" ]; then
               lastmod=$(date -u -r "$file" +"%Y-%m-%dT%H:%M:%SZ")
-              echo "  <url><loc>$url</loc><lastmod>$lastmod</lastmod></url>" >> sitemap.xml
+              priority=$3
+              freq=$4
+              echo "  <url>" >> sitemap.xml
+              echo "    <loc>$url</loc>" >> sitemap.xml
+              echo "    <lastmod>$lastmod</lastmod>" >> sitemap.xml
+              [ -n "$freq" ] && echo "    <changefreq>$freq</changefreq>" >> sitemap.xml
+              [ -n "$priority" ] && echo "    <priority>$priority</priority>" >> sitemap.xml
+              echo "  </url>" >> sitemap.xml
             fi
           }
 
-          # Главная
-          add_url "https://fincrypta.github.io/" index.html
+          # Главная страница
+          add_url "https://fincrypta.github.io/" index.html "1.0" "daily"
 
-          # Все HTML-файлы в blog/ и вложенных папках
-          for file in $(find blog -name "*.html"); do
-            relpath=$(echo "$file" | sed 's|^\./||')
-            add_url "https://fincrypta.github.io/$relpath" "$file"
+          # Категории блога
+          for page in blog/*.html; do
+            [ -f "$page" ] && add_url "https://fincrypta.github.io/$page" "$page" "0.9" "daily"
           done
 
-          # Остальные страницы (корень)
-          for file in about.html contacts.html disclaimer.html privacy.html; do
-            add_url "https://fincrypta.github.io/$file" "$file"
+          # Отдельные статьи
+          for page in $(find blog/articles -name "*.html"); do
+            add_url "https://fincrypta.github.io/$page" "$page" "0.7" "weekly"
+          done
+
+          # Остальные страницы
+          for page in about.html contacts.html disclaimer.html privacy.html; do
+            [ -f "$page" ] && add_url "https://fincrypta.github.io/$page" "$page" "0.5" "monthly"
           done
 
           echo '</urlset>' >> sitemap.xml
@@ -50,11 +61,12 @@ jobs:
           echo "User-agent: *" > robots.txt
           echo "Allow: /" >> robots.txt
           echo "Sitemap: https://fincrypta.github.io/sitemap.xml" >> robots.txt
+          echo "Host: fincrypta.github.io" >> robots.txt
 
       - name: Commit and Push changes
         run: |
           git config --local user.name "github-actions"
           git config --local user.email "github-actions@github.com"
           git add sitemap.xml robots.txt
-          git commit -m "Auto-update sitemap.xml and robots.txt with lastmod" || echo "No changes"
+          git commit -m "Auto-update sitemap.xml and robots.txt with lastmod, priority & freq" || echo "No changes to commit"
           git push
