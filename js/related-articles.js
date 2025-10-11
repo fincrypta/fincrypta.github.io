@@ -20,11 +20,20 @@ const allArticles = [
   { url: "/blog/articles/Chto_luchshe_mayning_ili_steyking.html", title: "Что лучше: майнинг или стейкинг?" }
 ];
 
+<!--// Определяем текущую страницу
+const currentFile = window.location.pathname.split("/").pop();-->
 // Определяем текущую страницу
-const currentFile = window.location.pathname.split("/").pop();
+const currentPath = window.location.pathname;
+const currentFile = currentPath === "/" ? null : currentPath.split("/").pop();
 
 // Исключаем текущую статью
-const filtered = allArticles.filter(a => !a.url.endsWith(currentFile));
+const filtered = currentFile
+  ? allArticles.filter(a => !a.url.endsWith(currentFile))
+  : allArticles;
+
+
+<!--// Исключаем текущую статью
+const filtered = allArticles.filter(a => !a.url.endsWith(currentFile));-->
 
 // Перемешиваем и берём 3 случайных
 function shuffle(array) {
