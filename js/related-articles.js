@@ -17,39 +17,27 @@ const allArticles = [
   { url: "/blog/articles/top-5_nadezhnykh_obmennikov_dlya_pokupki_USDT_v_Rossii.html", title: "Топ-5 надежных обменников для покупки USDT в России" },
   { url: "/blog/articles/Obzor_Bybit_plyusy_i_minusy_dlya_treyderov.html", title: "Обзор Bybit: плюсы и минусы для трейдеров" },
   { url: "/blog/articles/Trust_Wallet_rukovodstvo_dlya_novichkov.html", title: "Trust Wallet: руководство для новичков" },
-   { url: "/blog/articles/Chto_luchshe_mayning_ili_steyking.html", title: "Что лучше: майнинг или стейкинг?" }
+  { url: "/blog/articles/Chto_luchshe_mayning_ili_steyking.html", title: "Что лучше: майнинг или стейкинг?" }
 ];
 
-// Получаем имя текущей страницы
-const currentPage = window.location.pathname.split("/").pop();
+// Определяем текущую страницу
+const currentFile = window.location.pathname.split("/").pop();
 
-// Фильтруем текущую статью
-const filtered = allArticles.filter(a => a.url !== currentPage);
+// Исключаем текущую статью
+const filtered = allArticles.filter(a => !a.url.endsWith(currentFile));
 
-// Функция перемешивания
+// Перемешиваем и берём 3 случайных
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
 }
-
-// Берем 3 случайные статьи
 const related = shuffle(filtered).slice(0, 3);
 
-// Выводим в блок #related-list
+// Выводим в блок
 const list = document.getElementById("related-list");
-if (list) {
+if (list && related.length > 0) {
   related.forEach(article => {
-    // Определяем относительный путь
-    let path = article.url;
-
-    // Если сайт на GitHub Pages в папке /blog/ и страница в подпапке, используем относительный путь
-    const depth = window.location.pathname.split("/").length - 2; // сколько подпапок вверх
-    if (depth > 0) {
-      path = "../".repeat(depth) + article.url;
-    }
-
     const li = document.createElement("li");
-    li.innerHTML = `<a href="${path}">${article.title}</a>`;
+    li.innerHTML = `<a href="${article.url}">${article.title}</a>`;
     list.appendChild(li);
   });
 }
-
