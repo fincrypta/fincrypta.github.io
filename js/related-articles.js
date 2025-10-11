@@ -16,7 +16,8 @@ const allArticles = [
   { url: "/blog/articles/kak_kupit_ethereum_za_rubli_v_2025_godu.html", title: "Как купить Ethereum за рубли в 2025 году: пошаговое руководство" },
   { url: "/blog/articles/top-5_nadezhnykh_obmennikov_dlya_pokupki_USDT_v_Rossii.html", title: "Топ-5 надежных обменников для покупки USDT в России" },
   { url: "/blog/articles/Obzor_Bybit_plyusy_i_minusy_dlya_treyderov.html", title: "Обзор Bybit: плюсы и минусы для трейдеров" },
-  { url: "/blog/articles/Trust_Wallet_rukovodstvo_dlya_novichkov.html", title: "Trust Wallet: руководство для новичков" }
+  { url: "/blog/articles/Trust_Wallet_rukovodstvo_dlya_novichkov.html", title: "Trust Wallet: руководство для новичков" },
+   { url: "/blog/articles/Chto_luchshe_mayning_ili_steyking.html", title: "Что лучше: майнинг или стейкинг?" }
 ];
 
 // Получаем имя текущей страницы
