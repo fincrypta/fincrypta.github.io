@@ -19,7 +19,8 @@ const allArticles = [
   { url: "/blog/articles/Trust_Wallet_rukovodstvo_dlya_novichkov.html", title: "Trust Wallet: руководство для новичков" },
   { url: "/blog/articles/Chto_luchshe_mayning_ili_steyking.html", title: "Что лучше: майнинг или стейкинг?" },
   { url: "/blog/articles/Top-5_DeFi-platform_dlya_passivnogo_dokhoda.html", title: "Топ-5 DeFi-платформ для пассивного дохода" },
-  { url: "/blog/articles/Kak_banki_otnosyatsya_k_kriptovalyutam_v_RF.html", title: "Как банки относятся к криптовалютам в РФ" }
+  { url: "/blog/articles/Kak_banki_otnosyatsya_k_kriptovalyutam_v_RF.html", title: "Как банки относятся к криптовалютам в РФ" },
+  { url: "/blog/articles/Dolgosrochnye_investitsii_v_BTC_i_ETH.html", title: "Долгосрочные инвестиции в BTC и ETH: стратегия HODL" }
 ];
 
 // Определяем текущую страницу
