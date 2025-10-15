@@ -18,7 +18,8 @@ const allArticles = [
   { url: "/blog/articles/Obzor_Bybit_plyusy_i_minusy_dlya_treyderov.html", title: "Обзор Bybit: плюсы и минусы для трейдеров" },
   { url: "/blog/articles/Trust_Wallet_rukovodstvo_dlya_novichkov.html", title: "Trust Wallet: руководство для новичков" },
   { url: "/blog/articles/Chto_luchshe_mayning_ili_steyking.html", title: "Что лучше: майнинг или стейкинг?" },
-  { url: "/blog/articles/Top-5_DeFi-platform_dlya_passivnogo_dokhoda.html", title: "Топ-5 DeFi-платформ для пассивного дохода" }
+  { url: "/blog/articles/Top-5_DeFi-platform_dlya_passivnogo_dokhoda.html", title: "Топ-5 DeFi-платформ для пассивного дохода" },
+  { url: "/blog/articles/Kak_banki_otnosyatsya_k_kriptovalyutam_v_RF.html", title: "Как банки относятся к криптовалютам в РФ" }
 ];
 
 // Определяем текущую страницу
