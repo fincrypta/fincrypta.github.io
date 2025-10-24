@@ -20,7 +20,8 @@ const allArticles = [
   { url: "/blog/articles/Chto_luchshe_mayning_ili_steyking.html", title: "Что лучше: майнинг или стейкинг?" },
   { url: "/blog/articles/Top-5_DeFi-platform_dlya_passivnogo_dokhoda.html", title: "Топ-5 DeFi-платформ для пассивного дохода" },
   { url: "/blog/articles/Kak_banki_otnosyatsya_k_kriptovalyutam_v_RF.html", title: "Как банки относятся к криптовалютам в РФ" },
-  { url: "/blog/articles/Dolgosrochnye_investitsii_v_BTC_i_ETH.html", title: "Долгосрочные инвестиции в BTC и ETH: стратегия HODL" }
+  { url: "/blog/articles/Dolgosrochnye_investitsii_v_BTC_i_ETH.html", title: "Долгосрочные инвестиции в BTC и ETH: стратегия HODL" },
+  { url: "/blog/articles/Kak_zapusk_ETF_na_bitkoin_povliyal_na_rynok.html", title: "Как запуск ETF на биткоин повлиял на рынок" }
 ];
 
 // Определяем текущую страницу
