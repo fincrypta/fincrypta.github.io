@@ -22,7 +22,8 @@ const allArticles = [
   { url: "/blog/articles/Kak_banki_otnosyatsya_k_kriptovalyutam_v_RF.html", title: "Как банки относятся к криптовалютам в РФ" },
   { url: "/blog/articles/Dolgosrochnye_investitsii_v_BTC_i_ETH.html", title: "Долгосрочные инвестиции в BTC и ETH: стратегия HODL" },
   { url: "/blog/articles/Kak_zapusk_ETF_na_bitkoin_povliyal_na_rynok.html", title: "Как запуск ETF на биткоин повлиял на рынок" },
-  { url: "/blog/articles/Sravnenie_pokupki_BTC_cherez_P2P_i_birzhu.html", title: "Сравнение покупки BTC через P2P и биржу" }
+  { url: "/blog/articles/Sravnenie_pokupki_BTC_cherez_P2P_i_birzhu.html", title: "Сравнение покупки BTC через P2P и биржу" },
+  { url: "/blog/articles/TON_kak_kupit_i_gde_khranit_v_2025_godu.html", title: "TON: как купить и где хранить в 2025 году" }
 ];
 
 // Определяем текущую страницу
