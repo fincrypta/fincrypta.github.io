@@ -25,7 +25,8 @@ const allArticles = [
   { url: "/blog/articles/Sravnenie_pokupki_BTC_cherez_P2P_i_birzhu.html", title: "Сравнение покупки BTC через P2P и биржу" },
   { url: "/blog/articles/TON_kak_kupit_i_gde_khranit_v_2025_godu.html", title: "TON: как купить и где хранить в 2025 году" },
   { url: "/blog/articles/Kak_kupit_kriptovalyutu_cherez_Tinkoff_Bank_v_2025_godu.html", title: "Как купить криптовалюту через Тинькофф Банк в 2025 году" },
-  { url: "/blog/articles/Kak_proyti_verifikatsiyu_na_OKX_v_2025_godu.html", title: "Как пройти верификацию на OKX в 2025 году" }
+  { url: "/blog/articles/Kak_proyti_verifikatsiyu_na_OKX_v_2025_godu.html", title: "Как пройти верификацию на OKX в 2025 году" },
+  { url: "/blog/articles/Metamask_poshagovaya_instruktsiya_po_nastroike.html", title: "Metamask: пошаговая инструкция по настройке" }
 ];
 
 // Определяем текущую страницу
