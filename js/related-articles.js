@@ -30,7 +30,8 @@ const allArticles = [
   { url: "/blog/articles/Kak_steikat_Ethereum_i_poluchat_dokhod.html", title: "Как стейкать Ethereum 2.0 и получать доход" },
   { url: "/blog/articles/Kak_zarabotat_na_farmingе_likvidnosti.html", title: "Как заработать на фарминге ликвидности" },
   { url: "/blog/articles/Nalogooblozhenie_dokhodov_ot_kriptovalyut.html", title: "Налогообложение доходов от криптовалют" },
-  { url: "/blog/articles/Kak_sostavit_kriptoportfel_v_2025.html", title: "Как составить криптопортфель в 2025" }
+  { url: "/blog/articles/Kak_sostavit_kriptoportfel_v_2025.html", title: "Как составить криптопортфель в 2025" },
+  { url: "/blog/articles/Rossiya_i_kriptovalyuty_novye_zakony_2025_goda.html", title: "Россия и криптовалюты: новые законы 2025 года" }
 ];
 
 // Определяем текущую страницу
