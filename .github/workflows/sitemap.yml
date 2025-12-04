@@ -18,24 +18,22 @@ jobs:
           fetch-depth: 0
 
       - name: Ensure .nojekyll exists
-        run: |
-          touch .nojekyll
+        run: touch .nojekyll
 
       - name: Generate sitemap.xml
         shell: bash
         run: |
           BASE_URL="https://fincrypta.github.io"
 
-          # URL-encoding + XML-escaping
+          # URL-encoding + XML-escaping (оставляем /)
           urlencode() {
             local raw="$1"
             local len=${#raw}
             local encoded=""
-
             for (( i=0; i<len; i++ )); do
               c="${raw:$i:1}"
               case $c in
-                [a-zA-Z0-9.~_-]) encoded+="$c" ;;
+                [a-zA-Z0-9.~_-]|/) encoded+="$c" ;;
                 *) printf -v hex '%%%02X' "'$c"; encoded+="$hex" ;;
               esac
             done
@@ -54,7 +52,7 @@ jobs:
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
 
-          # ищем все html-файлы (вложенные тоже)
+          # ищем все html-файлы (включая вложенные)
           mapfile -t HTML_FILES < <(find . -type f -name "*.html" | sort)
 
           for file in "${HTML_FILES[@]}"; do
