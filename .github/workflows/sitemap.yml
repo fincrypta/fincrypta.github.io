@@ -14,29 +14,32 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ensure .nojekyll exists
+        run: echo "" > .nojekyll
 
       - name: Generate sitemap.xml
         run: |
-          shopt -s nullglob
-
           BASE_URL="https://fincrypta.github.io"
 
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
 
           add_url () {
-            file_path="$1"
-            web_path="$2"
+            file="$1"
+            url="$2"
             priority="$3"
             freq="$4"
 
-            if [ -f "$file_path" ]; then
-              lastmod=$(date -u -r "$file_path" +"%Y-%m-%dT%H:%M:%SZ")
+            if [ -f "$file" ]; then
+              lastmod=$(date -u -r "$file" +"%Y-%m-%dT%H:%M:%SZ")
               echo "  <url>" >> sitemap.xml
-              echo "    <loc>${BASE_URL}/${web_path}</loc>" >> sitemap.xml
+              echo "    <loc>${BASE_URL}/${url}</loc>" >> sitemap.xml
               echo "    <lastmod>$lastmod</lastmod>" >> sitemap.xml
-              [ -n "$freq" ] && echo "    <changefreq>$freq</changefreq>" >> sitemap.xml
-              [ -n "$priority" ] && echo "    <priority>$priority</priority>" >> sitemap.xml
+              echo "    <changefreq>$freq</changefreq>" >> sitemap.xml
+              echo "    <priority>$priority</priority>" >> sitemap.xml
               echo "  </url>" >> sitemap.xml
             fi
           }
@@ -44,20 +47,19 @@ jobs:
           # Главная
           add_url "index.html" "" "1.0" "daily"
 
-          # Все HTML-файлы в корне
-          for file in *.html; do
-            [[ "$file" != "index.html" ]] && add_url "$file" "$file" "0.8" "weekly"
+          # HTML в корне
+          for f in *.html; do
+            [[ "$f" != "index.html" ]] && add_url "$f" "$f" "0.8" "weekly"
           done
 
-          # Все HTML-файлы в blog/
-          for file in blog/*.html; do
-            add_url "$file" "$file" "0.9" "daily"
+          # blog/*.html
+          for f in blog/*.html; do
+            add_url "$f" "$f" "0.9" "daily"
           done
 
-          # Все HTML-файлы в blog/articles/*
-          for file in blog/articles/**/*.html; do
-            rel=${file#*/}
-            add_url "$file" "$rel" "0.7" "weekly"
+          # blog/articles/*.html
+          for f in blog/articles/*.html; do
+            add_url "$f" "$f" "0.7" "weekly"
           done
 
           echo '</urlset>' >> sitemap.xml
@@ -72,6 +74,6 @@ jobs:
         run: |
           git config --local user.name "github-actions"
           git config --local user.email "github-actions@github.com"
-          git add sitemap.xml robots.txt
-          git commit -m "Auto-update sitemap.xml and robots.txt" || echo "No changes to commit"
+          git add sitemap.xml robots.txt .nojekyll
+          git commit -m "Auto-update sitemap and robots" || true
           git push
