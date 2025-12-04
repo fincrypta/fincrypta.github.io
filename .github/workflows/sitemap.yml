@@ -1,9 +1,9 @@
-name: Auto Update Sitemap & Robots
+name: Auto Generate Sitemap & Robots
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -18,48 +18,63 @@ jobs:
           fetch-depth: 0
 
       - name: Ensure .nojekyll exists
-        run: echo "" > .nojekyll
+        run: |
+          touch .nojekyll
 
       - name: Generate sitemap.xml
+        shell: bash
         run: |
           BASE_URL="https://fincrypta.github.io"
+
+          # URL-encoding + XML-escaping
+          urlencode() {
+            local raw="$1"
+            local len=${#raw}
+            local encoded=""
+
+            for (( i=0; i<len; i++ )); do
+              c="${raw:$i:1}"
+              case $c in
+                [a-zA-Z0-9.~_-]) encoded+="$c" ;;
+                *) printf -v hex '%%%02X' "'$c"; encoded+="$hex" ;;
+              esac
+            done
+            echo "$encoded"
+          }
+
+          xmlescape() {
+            echo "$1" \
+              | sed -e 's/&/\&amp;/g' \
+                    -e 's/</\&lt;/g' \
+                    -e 's/>/\&gt;/g' \
+                    -e "s/'/\&apos;/g" \
+                    -e 's/"/\&quot;/g'
+          }
 
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
 
-          add_url () {
-            file="$1"
-            url="$2"
-            priority="$3"
-            freq="$4"
+          # ищем все html-файлы (вложенные тоже)
+          mapfile -t HTML_FILES < <(find . -type f -name "*.html" | sort)
 
-            if [ -f "$file" ]; then
-              lastmod=$(date -u -r "$file" +"%Y-%m-%dT%H:%M:%SZ")
-              echo "  <url>" >> sitemap.xml
-              echo "    <loc>${BASE_URL}/${url}</loc>" >> sitemap.xml
-              echo "    <lastmod>$lastmod</lastmod>" >> sitemap.xml
-              echo "    <changefreq>$freq</changefreq>" >> sitemap.xml
-              echo "    <priority>$priority</priority>" >> sitemap.xml
-              echo "  </url>" >> sitemap.xml
+          for file in "${HTML_FILES[@]}"; do
+            clean="${file#./}"
+
+            # главная отдельно
+            if [[ "$clean" == "index.html" ]]; then
+              url="${BASE_URL}/index.html"
+            else
+              encoded=$(urlencode "$clean")
+              url="${BASE_URL}/${encoded}"
             fi
-          }
 
-          # Главная
-          add_url "index.html" "" "1.0" "daily"
+            esc_url=$(xmlescape "$url")
+            lastmod=$(date -u -r "$file" +"%Y-%m-%dT%H:%M:%SZ")
 
-          # HTML в корне
-          for f in *.html; do
-            [[ "$f" != "index.html" ]] && add_url "$f" "$f" "0.8" "weekly"
-          done
-
-          # blog/*.html
-          for f in blog/*.html; do
-            add_url "$f" "$f" "0.9" "daily"
-          done
-
-          # blog/articles/*.html
-          for f in blog/articles/*.html; do
-            add_url "$f" "$f" "0.7" "weekly"
+            echo "  <url>" >> sitemap.xml
+            echo "    <loc>${esc_url}</loc>" >> sitemap.xml
+            echo "    <lastmod>${lastmod}</lastmod>" >> sitemap.xml
+            echo "  </url>" >> sitemap.xml
           done
 
           echo '</urlset>' >> sitemap.xml
@@ -75,5 +90,5 @@ jobs:
           git config --local user.name "github-actions"
           git config --local user.email "github-actions@github.com"
           git add sitemap.xml robots.txt .nojekyll
-          git commit -m "Auto-update sitemap and robots" || true
+          git commit -m "Auto-generate sitemap.xml and robots.txt" || echo "No changes"
           git push
