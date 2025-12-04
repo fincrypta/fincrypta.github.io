@@ -17,18 +17,23 @@ jobs:
 
       - name: Generate sitemap.xml
         run: |
+          shopt -s nullglob
+
+          BASE_URL="https://fincrypta.github.io"
+
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
 
           add_url () {
-            url=$1
-            file=$2
-            if [ -f "$file" ]; then
-              lastmod=$(date -u -r "$file" +"%Y-%m-%dT%H:%M:%SZ")
-              priority=$3
-              freq=$4
+            file_path="$1"
+            web_path="$2"
+            priority="$3"
+            freq="$4"
+
+            if [ -f "$file_path" ]; then
+              lastmod=$(date -u -r "$file_path" +"%Y-%m-%dT%H:%M:%SZ")
               echo "  <url>" >> sitemap.xml
-              echo "    <loc>$url</loc>" >> sitemap.xml
+              echo "    <loc>${BASE_URL}/${web_path}</loc>" >> sitemap.xml
               echo "    <lastmod>$lastmod</lastmod>" >> sitemap.xml
               [ -n "$freq" ] && echo "    <changefreq>$freq</changefreq>" >> sitemap.xml
               [ -n "$priority" ] && echo "    <priority>$priority</priority>" >> sitemap.xml
@@ -36,22 +41,23 @@ jobs:
             fi
           }
 
-          # Главная страница
-          add_url "https://fincrypta.github.io/" index.html "1.0" "daily"
+          # Главная
+          add_url "index.html" "" "1.0" "daily"
 
-          # Категории блога
-          for page in blog/*.html; do
-            [ -f "$page" ] && add_url "https://fincrypta.github.io/$page" "$page" "0.9" "daily"
+          # Все HTML-файлы в корне
+          for file in *.html; do
+            [[ "$file" != "index.html" ]] && add_url "$file" "$file" "0.8" "weekly"
           done
 
-          # Отдельные статьи
-          for page in $(find blog/articles -name "*.html"); do
-            add_url "https://fincrypta.github.io/$page" "$page" "0.7" "weekly"
+          # Все HTML-файлы в blog/
+          for file in blog/*.html; do
+            add_url "$file" "$file" "0.9" "daily"
           done
 
-          # Остальные страницы
-          for page in about.html contacts.html disclaimer.html privacy.html; do
-            [ -f "$page" ] && add_url "https://fincrypta.github.io/$page" "$page" "0.5" "monthly"
+          # Все HTML-файлы в blog/articles/*
+          for file in blog/articles/**/*.html; do
+            rel=${file#*/}
+            add_url "$file" "$rel" "0.7" "weekly"
           done
 
           echo '</urlset>' >> sitemap.xml
@@ -61,12 +67,11 @@ jobs:
           echo "User-agent: *" > robots.txt
           echo "Allow: /" >> robots.txt
           echo "Sitemap: https://fincrypta.github.io/sitemap.xml" >> robots.txt
-          echo "Host: fincrypta.github.io" >> robots.txt
 
       - name: Commit and Push changes
         run: |
           git config --local user.name "github-actions"
           git config --local user.email "github-actions@github.com"
           git add sitemap.xml robots.txt
-          git commit -m "Auto-update sitemap.xml and robots.txt with lastmod, priority & freq" || echo "No changes to commit"
+          git commit -m "Auto-update sitemap.xml and robots.txt" || echo "No changes to commit"
           git push
