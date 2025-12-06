@@ -34,7 +34,8 @@ const allArticles = [
   { url: "/blog/articles/Rossiya_i_kriptovalyuty_novye_zakony_2025_goda.html", title: "Россия и криптовалюты: новые законы 2025 года" },
   { url: "/blog/articles/Bitkoin_kak_sredstvo_zashchity_ot_inflyatsii_v_Rossii.html", title: "Биткоин как средство защиты от инфляции в России" },
   { url: "/blog/articles/Obzor_Polkadot_i_ego_perspektivy.html", title: "Обзор Polkadot и его перспективы" },
-  { url: "/blog/articles/Sravnenie_P2P-platform_Binance_vs_Bybit_vs_OKX.html", title: "Сравнение P2P-платформ: Binance vs Bybit vs OKX" }
+  { url: "/blog/articles/Sravnenie_P2P-platform_Binance_vs_Bybit_vs_OKX.html", title: "Сравнение P2P-платформ: Binance vs Bybit vs OKX" },
+  { url: "/blog/articles/TOP-5_birzh_dlya_torgovli_s_rublyami.html", title: "ТОП-5 бирж для торговли с рублями" }
 ];
 
 // Определяем текущую страницу
