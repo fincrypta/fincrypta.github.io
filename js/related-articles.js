@@ -36,7 +36,8 @@ const allArticles = [
   { url: "/blog/articles/Obzor_Polkadot_i_ego_perspektivy.html", title: "Обзор Polkadot и его перспективы" },
   { url: "/blog/articles/Sravnenie_P2P-platform_Binance_vs_Bybit_vs_OKX.html", title: "Сравнение P2P-платформ: Binance vs Bybit vs OKX" },
   { url: "/blog/articles/TOP-5_birzh_dlya_torgovli_s_rublyami.html", title: "ТОП-5 бирж для торговли с рублями" },
-  { url: "/blog/articles/Kholodnye_koshelki_Ledger_i_Trezor_kakoy_vybrat.html", title: "Холодные кошельки Ledger и Trezor: какой выбрать?" }
+  { url: "/blog/articles/Kholodnye_koshelki_Ledger_i_Trezor_kakoy_vybrat.html", title: "Холодные кошельки Ledger и Trezor: какой выбрать?" },
+  { url: "/blog/articles/Obzor_pulov_dlya_mayninga_v_2025.html", title: "Обзор пулов для майнинга в 2025" }
 ];
 
 // Определяем текущую страницу
