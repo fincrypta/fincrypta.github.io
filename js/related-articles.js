@@ -37,7 +37,8 @@ const allArticles = [
   { url: "/blog/articles/Sravnenie_P2P-platform_Binance_vs_Bybit_vs_OKX.html", title: "Сравнение P2P-платформ: Binance vs Bybit vs OKX" },
   { url: "/blog/articles/TOP-5_birzh_dlya_torgovli_s_rublyami.html", title: "ТОП-5 бирж для торговли с рублями" },
   { url: "/blog/articles/Kholodnye_koshelki_Ledger_i_Trezor_kakoy_vybrat.html", title: "Холодные кошельки Ledger и Trezor: какой выбрать?" },
-  { url: "/blog/articles/Obzor_pulov_dlya_mayninga_v_2025.html", title: "Обзор пулов для майнинга в 2025" }
+  { url: "/blog/articles/Obzor_pulov_dlya_mayninga_v_2025.html", title: "Обзор пулов для майнинга в 2025" },
+  { url: "/blog/articles/Chto_budet_s_NFT_v_2026_godu.html", title: "Что будет с NFT в 2026 году?" }
 ];
 
 // Определяем текущую страницу
