@@ -39,7 +39,8 @@ const allArticles = [
   { url: "/blog/articles/Kholodnye_koshelki_Ledger_i_Trezor_kakoy_vybrat.html", title: "Холодные кошельки Ledger и Trezor: какой выбрать?" },
   { url: "/blog/articles/Obzor_pulov_dlya_mayninga_v_2025.html", title: "Обзор пулов для майнинга в 2025" },
   { url: "/blog/articles/Chto_budet_s_NFT_v_2026_godu.html", title: "Что будет с NFT в 2026 году?" },
-  { url: "/blog/articles/Mogut_li_zablokirovat_schet_za_pokupku_BTC.html", title: "Могут ли заблокировать счет за покупку BTC?" }
+  { url: "/blog/articles/Mogut_li_zablokirovat_schet_za_pokupku_BTC.html", title: "Могут ли заблокировать счет за покупку BTC?" },
+  { url: "/blog/articles/Top-5_strategiy_treydinga_kriptovalyut.html", title: "Топ-5 стратегий трейдинга криптовалют" }
 ];
 
 // Определяем текущую страницу
