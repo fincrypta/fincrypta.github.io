@@ -41,7 +41,8 @@ const allArticles = [
   { url: "/blog/articles/Chto_budet_s_NFT_v_2026_godu.html", title: "Что будет с NFT в 2026 году?" },
   { url: "/blog/articles/Mogut_li_zablokirovat_schet_za_pokupku_BTC.html", title: "Могут ли заблокировать счет за покупку BTC?" },
   { url: "/blog/articles/Top-5_strategiy_treydinga_kriptovalyut.html", title: "Топ-5 стратегий трейдинга криптовалют" },
-  { url: "/blog/articles/Rost_TON_kak_ekosistema_Telegram_menyaet_kriptorynok.html", title: "Рост TON: как экосистема Telegram меняет крипторынок" }
+  { url: "/blog/articles/Rost_TON_kak_ekosistema_Telegram_menyaet_kriptorynok.html", title: "Рост TON: как экосистема Telegram меняет крипторынок" },
+  { url: "/blog/articles/Kak_kupit_bitkoin_za_rubli_cherez_Tinkoff.html", title: "Как купить биткоин за рубли через Тинькофф" }
 ];
 
 // Определяем текущую страницу
