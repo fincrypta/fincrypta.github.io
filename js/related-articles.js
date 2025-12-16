@@ -42,7 +42,8 @@ const allArticles = [
   { url: "/blog/articles/Mogut_li_zablokirovat_schet_za_pokupku_BTC.html", title: "Могут ли заблокировать счет за покупку BTC?" },
   { url: "/blog/articles/Top-5_strategiy_treydinga_kriptovalyut.html", title: "Топ-5 стратегий трейдинга криптовалют" },
   { url: "/blog/articles/Rost_TON_kak_ekosistema_Telegram_menyaet_kriptorynok.html", title: "Рост TON: как экосистема Telegram меняет крипторынок" },
-  { url: "/blog/articles/Kak_kupit_bitkoin_za_rubli_cherez_Tinkoff.html", title: "Как купить биткоин за рубли через Тинькофф" }
+  { url: "/blog/articles/Kak_kupit_bitkoin_za_rubli_cherez_Tinkoff.html", title: "Как купить биткоин за рубли через Тинькофф" },
+  { url: "/blog/articles/Cardano_stoit_li_investirovat_v_2025_godu.html", title: "Cardano: стоит ли инвестировать в 2025 году?" }
 ];
 
 // Определяем текущую страницу
