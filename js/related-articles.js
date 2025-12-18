@@ -44,7 +44,8 @@ const allArticles = [
   { url: "/blog/articles/Rost_TON_kak_ekosistema_Telegram_menyaet_kriptorynok.html", title: "Рост TON: как экосистема Telegram меняет крипторынок" },
   { url: "/blog/articles/Kak_kupit_bitkoin_za_rubli_cherez_Tinkoff.html", title: "Как купить биткоин за рубли через Тинькофф" },
   { url: "/blog/articles/Cardano_stoit_li_investirovat_v_2025_godu.html", title: "Cardano: стоит ли инвестировать в 2025 году?" },
-  { url: "/blog/articles/Kak_perevesti_rubli_v_bitkoiny_cherez_kartu_Mir.html", title: "Как перевести рубли в биткоины через карту «Мир»" }
+  { url: "/blog/articles/Kak_perevesti_rubli_v_bitkoiny_cherez_kartu_Mir.html", title: "Как перевести рубли в биткоины через карту «Мир»" },
+  { url: "/blog/articles/Gde_luchshe_torgovat_altkoinami_Binance_ili_Bybit.html", title: "Где лучше торговать альткоинами: Binance или Bybit?" }
 ];
 
 // Определяем текущую страницу
