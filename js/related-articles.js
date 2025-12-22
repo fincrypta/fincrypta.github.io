@@ -48,7 +48,8 @@ const allArticles = [
   { url: "/blog/articles/Gde_luchshe_torgovat_altkoinami_Binance_ili_Bybit.html", title: "Где лучше торговать альткоинами: Binance или Bybit?" },
   { url: "/blog/articles/Kak_khranit_kriptovalyutu_na_telefone_bezopasno.html", title: "Как хранить криптовалюту на телефоне безопасно" },
   { url: "/blog/articles/Kak_nachat_maynit_TON_v_Rossii.html", title: "Как начать майнить TON в России" },
-  { url: "/blog/articles/Obzor_populyarnykh_NFT-marketpleysov.html", title: "Обзор популярных NFT-маркетплейсов" }
+  { url: "/blog/articles/Obzor_populyarnykh_NFT-marketpleysov.html", title: "Обзор популярных NFT-маркетплейсов" },
+  { url: "/blog/articles/Mezhdunarodnye_sanktsii_i_kriptovalyuty.html", title: "Международные санкции и криптовалюты" }
 ];
 
 // Определяем текущую страницу
